@@ -1,6 +1,32 @@
 {
   "extends": "expo/tsconfig.base",
-  "compilerOptions": {
-    "strict": true
+      "compilerOptions": {
+    // Target latest version of ECMAScript.
+    "target": "esnext",
+    // Search under node_modules for non-relative imports.
+    "moduleResolution": "node",
+    // Process & infer types from .js files.
+    "allowJs": true,
+    // Don't emit; allow Babel to transform files.
+    "noEmit": true,
+    // Enable strictest settings like strictNullChecks & noImplicitAny.
+    "strict": true,
+    // Import non-ES modules as default imports.
+    "esModuleInterop": true,
+    "jsx": "react",
+    "baseUrl": "./",
+    "paths": {
+      // This needs to be mirrored in babel.config.js
+      // Components is a directory with sub directories
+      "@components/*": ["./src/components/*"],
+      "@screens/*": ["./src/screens/*"],
+      "@icons/*": ["./src/components/icons"],
+      "@assets/*": ["./assets/*"],
+      "@types/*": ["./types/*"],
+
+
+      // We want to expose the exports of the buttons index file
+      // "buttons": ["src/components/buttons/index"]
+    }
   }
 }

@@ -1,20 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { Text, View, Button} from 'react-native';
+import Home from './src/screens/Home'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+import { StatusBar } from 'expo-status-bar';
+import styled, { DefaultTheme } from 'styled-components/native';
+import { lightTheme, darkTheme} from './src/Theme';
+import { ThemeProvider } from 'styled-components';
+import AppRouter from 'src/AppRouter';
+
+type ThemeStateType = {
+  style: 'light' | 'dark';
+  theme: DefaultTheme
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+  const [theme, setTheme] = React.useState<ThemeStateType>({
+    style: "light",
+    theme: lightTheme
+  })
+
+  const toggleTheme = () => {
+    if (theme.style === 'light') setTheme({style: 'dark', theme: darkTheme})
+    else setTheme({style: 'light', theme: lightTheme})
+  }
+
+  return (
+    <ThemeProvider theme={theme.theme}>
+      <AppRouter />
+        <Button title="change color!" onPress={toggleTheme} />
+      <StatusBar style="auto" />
+    </ThemeProvider>
+  );
+};
