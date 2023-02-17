@@ -16,17 +16,17 @@
     "jsx": "react",
     "baseUrl": "./",
     "paths": {
-      // This needs to be mirrored in babel.config.js
-      // Components is a directory with sub directories
-      "@components/*": ["./src/components/*"],
-      "@screens/*": ["./src/screens/*"],
-      "@icons/*": ["./src/components/icons"],
-      "@assets/*": ["./assets/*"],
-      "@types/*": ["./types/*"],
+      "icons/*": ["src/components/icons/*"],
+      "assets/*": ["assets/*"],
+      "styles/*": ["src/styles/*"],
 
+      "stores": ["src/stores"],
+      "routes": ["src/routes"],
+      "types/*": ["types/*"],
 
-      // We want to expose the exports of the buttons index file
-      // "buttons": ["src/components/buttons/index"]
+      "src/*": ["src/*"],
+      "screens/*": ["src/screens/*"],
+      "components": ["src/components"],
     }
   }
 }

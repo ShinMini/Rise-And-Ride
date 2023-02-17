@@ -14,22 +14,26 @@ const darkTheme = {
   ...DefaultTheme,
   color: {
   ...DefaultTheme.color,
-  PRIMARY_COLOR: '#000',
-  SECONDARY_COLOR: '#73737d',
-  TITLE_COLOR: '#fff',
-  BACKGROUND_COLOR: '#111216',
-  BUTTON_COLOR: '#fff',
+  PRIMARY: '#000',
+  SECONDARY: '#73737d',
+  TITLE: '#fff',
+  TEXT: '#EEEEEE',
+  BACKGROUND: '#111216',
+  BUTTON_TEXT: '#f9f9f9',
+  BUTTON: '#209a19',
   }
 }; 
 const lightTheme = {
   ...DefaultTheme,
   color: {
     ...DefaultTheme.color,
-    PRIMARY_COLOR: '#fff',
-    SECONDARY_COLOR: '#73737d',
-    TITLE_COLOR: '#000',
-    BACKGROUND_COLOR: '#fff',
-    BUTTON_COLOR: '#000',
+    PRIMARY: '#fff',
+    SECONDARY: '#73737d',
+    TITLE: '#000',
+    TEXT: '#CCCCCC',
+    BACKGROUND: '#fff',
+    BUTTON_TEXT: '#474747',
+    BUTTON: '#f1f3b5',
   }
 };
 

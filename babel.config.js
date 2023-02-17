@@ -1,22 +1,30 @@
   module.exports = function(api) {
   api.cache(true);
   return {
-    presets: ['babel-preset-expo', '@babel/preset-typescript', '@babel/preset-env'],
+    presets: ['babel-preset-expo'],
     plugins: [
-      ["@babel/plugin-transform-typescript"],
       ["babel-plugin-styled-components"],
       ["react-native-reanimated/plugin"],
-      ["module-resolver",
-        {
-          "root": ["./"],
-          "alias": {
-            "@icons/*": ["./src/components/icons"],
-            "@components/*": ["./src/components/*"],
-            "@screens/*": ["./src/screens/*"],
-            "@assets/*": ["./assets/*"],
-            "@types/*": ["./types/*"],
-          },
-        }]
+      ["module-resolver", {
+              "alias": {
+                "icons": "./src/components/icons",
+                "assets": "./assets",
+                "styles": "./src/styles",
+
+                "stores": "./src/stores",
+                "routes": "./src/routes",
+                "types": "./types",
+
+                "screens": "./src/screens",
+                "components": "./src/components",
+              },
+              "extensions": [
+                ".js",
+                ".jsx",
+                ".ts",
+                ".tsx",
+              ]
+            }],
     ]
   };
 };

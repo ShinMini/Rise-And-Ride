@@ -1,34 +1,25 @@
 import React from 'react'
-import { Text, View, Button} from 'react-native';
-import Home from './src/screens/Home'
-
+import AppRouter from './AppRouter';
 import { StatusBar } from 'expo-status-bar';
-import styled, { DefaultTheme } from 'styled-components/native';
-import { lightTheme, darkTheme} from './src/Theme';
-import { ThemeProvider } from 'styled-components';
-import AppRouter from 'src/AppRouter';
-
-type ThemeStateType = {
-  style: 'light' | 'dark';
-  theme: DefaultTheme
-}
+import {ThemeProvider} from 'styled-components/native';
+import {Provider, useSelector} from 'react-redux';
+import {ColorSchemeState, store} from 'stores';
 
 export default function App() {
-  const [theme, setTheme] = React.useState<ThemeStateType>({
-    style: "light",
-    theme: lightTheme
-  })
-
-  const toggleTheme = () => {
-    if (theme.style === 'light') setTheme({style: 'dark', theme: darkTheme})
-    else setTheme({style: 'light', theme: lightTheme})
-  }
-
   return (
-    <ThemeProvider theme={theme.theme}>
-      <AppRouter />
-        <Button title="change color!" onPress={toggleTheme} />
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <Provider store={store}>
+        <Main />
+    </Provider>
   );
 };
+
+const Main = () => {
+    const theme = useSelector((state: ColorSchemeState ) => state.theme);
+
+    return (
+        <ThemeProvider theme={theme}>
+            <AppRouter />
+            <StatusBar style="auto" />
+        </ThemeProvider>
+    );
+}
