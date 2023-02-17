@@ -15,6 +15,7 @@
                 "routes": "./src/routes",
                 "types": "./types",
 
+                "src": "./src",
                 "screens": "./src/screens",
                 "components": "./src/components",
               },

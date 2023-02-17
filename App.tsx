@@ -1,9 +1,8 @@
-import React from 'react'
-import AppRouter from './AppRouter';
-import { StatusBar } from 'expo-status-bar';
-import {ThemeProvider} from 'styled-components/native';
-import {Provider, useSelector} from 'react-redux';
-import {ColorSchemeState, store} from 'stores';
+import React  from 'react'
+import {Provider} from 'react-redux';
+import {store} from 'stores';
+import Main from "src/Main";
+
 
 export default function App() {
   return (
@@ -12,14 +11,3 @@ export default function App() {
     </Provider>
   );
 };
-
-const Main = () => {
-    const theme = useSelector((state: ColorSchemeState ) => state.theme);
-
-    return (
-        <ThemeProvider theme={theme}>
-            <AppRouter />
-            <StatusBar style="auto" />
-        </ThemeProvider>
-    );
-}

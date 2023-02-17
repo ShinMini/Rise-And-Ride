@@ -21,7 +21,7 @@
       "styles/*": ["src/styles/*"],
 
       "stores": ["src/stores"],
-      "routes": ["src/routes"],
+      "routes/*": ["src/routes/*"],
       "types/*": ["types/*"],
 
       "src/*": ["src/*"],

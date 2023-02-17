@@ -4,8 +4,9 @@ import { Image} from "react-native";
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Container, MainText } from "./styles";
 import {SButton, SText} from 'components'
-import {colorSchemeSlice, store, toggleTheme} from 'stores';
+import {toggleTheme} from 'stores';
 import { useDispatch } from 'react-redux';
+import BottomNavbar from "routes/BottomNavbar";
 
 type HomeScreenProps = {
   navigation: StackNavigationProp<RootStack.RootStackParamList, 'Home'>;
@@ -30,6 +31,7 @@ const HomeScreen: FC<HomeScreenProps> = ({navigation}) => {
         <SButton onPress={toggleButton} style={{marginBottom: 30}}>
           <SText>Toggle Theme</SText>
         </SButton>
+        <BottomNavbar />
     </Container>
     );
 }
