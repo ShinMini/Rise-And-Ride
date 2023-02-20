@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 
 const SText= styled.Text<{size?: number}>`
-  color: ${({theme}) => theme.color.TEXT};
+  color: ${({theme}) => theme.colors.TEXT};
   font-size: ${({ size }) => size || 25}px;
 
   border-radius: 15px;

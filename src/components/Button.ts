@@ -1,10 +1,10 @@
 import styled from "styled-components/native";
 
 const SButton= styled.TouchableOpacity`
-  background-color: ${({theme}) => theme.color.BUTTON};
+  background-color: ${({theme}) => theme.colors.BUTTON};
   padding: 20px 60px;
 
-  color: ${({theme}) => theme.color.BUTTON_TEXT};
+  color: ${({theme}) => theme.colors.BUTTON_TEXT};
   font-size: 20px;
 
   border-radius: 15px;

@@ -1,17 +1,19 @@
 // ProfileScreen.tsx
-import { StackScreenProps } from '@react-navigation/stack';
 import React, { FC } from 'react';
-import { View, Text, Button } from 'react-native';
-import { RootStackScreenProps } from 'types';
+import {View, Text, Button, StyleSheet} from 'react-native';
+import {useNavigation, useRoute} from "@react-navigation/native";
+import BottomNavbar from "routes/BottomNavbar";
+import {ProfileNavigationProp} from "routes/ProfileStack";
+import {ProfileRouteProp} from "src/routes/ProfileStack";
 
-type ProfileScreenNavigationProp = RootStackScreenProps<'Profile'>;
-type ProfileScreenProp = StackScreenProps<RootStack.ProfileStackParamList, 'ProfileScreen'>;
-
-const ProfileScreen: FC<ProfileScreenNavigationProp> = ({ navigation }) => {
+const ProfileScreen: FC = () => {
+  const navigation = useNavigation<ProfileNavigationProp<'ProfileScreen'>>();
+  const route = useRoute<ProfileRouteProp<'ProfileScreen'>>()
   return (
-    <View>
+    <View style={StyleSheet.absoluteFill}>
       <Text>Welcome to the Profile screen!</Text>
       <Button title="Go to Profile Detail screen" onPress={() => navigation.navigate('ProfileDetail', {username: 'hyeon min'})} />
+        <BottomNavbar />
     </View>
   );
 }

@@ -1,4 +1,6 @@
 module.exports = {
+  preset: "react-native",
+  setupFiles: [require.resolve("@shopify/react-native-skia/jestSetup.js")],
   transform: {
     "^.+\\.tsx?$": "ts-jest"
   },
