@@ -1,19 +1,13 @@
 import React, { FC } from "react";
-import {FlatList, Image, TouchableOpacity} from "react-native";
 import { StackNavigationProp } from '@react-navigation/stack';
-import { Container} from "./styles";
-import {SButton, SText} from 'components'
-import {toggleTheme} from 'stores';
-import { useDispatch } from 'react-redux';
 import BottomNavbar from "routes/BottomNavbar";
 import {NavigationProp, useNavigation, useRoute} from "@react-navigation/native";
 import {HomeRouteProp} from "src/routes/HomeStack";
-import {Regular} from "styles/Typo";
+import {Bold} from "styles/Typo";
 
 // import skia module for svg loading
 import {
-    Canvas,
-    ImageSVG,
+ SkSVG,
     useSVG
 } from "@shopify/react-native-skia";
 
@@ -22,56 +16,54 @@ import BLUE_BACKGROUND_MOBY_CARD from "assets/svg/modu_card_img/blue_background_
 import WHITE_BACKGROUND_MOBY_CARD from "assets/svg/modu_card_img/white_background_moby_card.svg";
 import GRID_MOBY_CARD from "assets/svg/modu_card_img/grid_moby_card.svg";
 import RIDING_MOBY_CARD from "assets/svg/modu_card_img/riding_moby_card.svg";
+import styled from "styled-components/native";
+import ModuCardFlatList from "src/components/Home/ModuCardFlatList";
+import HomeMainContent from "src/components/Home/HomeMainContent";
 
 type HomeScreenProps = {
-  navigation: StackNavigationProp<RootStack.RootStackParamList, 'Home'>;
+    navigation: StackNavigationProp<RootStack.RootStackParamList, 'Home'>;
 };
 
-const MODUCARD_DATA_STR = [BLUE_BACKGROUND_MOBY_CARD, WHITE_BACKGROUND_MOBY_CARD, GRID_MOBY_CARD, RIDING_MOBY_CARD]
+const MODU_CARD_DATA_STR = [BLUE_BACKGROUND_MOBY_CARD, WHITE_BACKGROUND_MOBY_CARD, GRID_MOBY_CARD, RIDING_MOBY_CARD]
+
+const HeaderText = styled(Bold)`
+    padding: 15px 0;
+    font-family: ${({theme}) => theme.fonts.NunitoBold};
+
+    color: ${({theme}) => theme.colors.TITLE};
+`;
+
+const Container = styled.ScrollView`
+  flex: 1;
+  background-color: ${({ theme }) => theme.colors.BACKGROUND};
+`;
+
+const MainText = styled.Text`
+  font-size: 20px;
+  text-align: center;
+  margin: 10px;
+  color: ${({ theme }) => theme.colors.TITLE};
+`;
 
 const HomeScreen: FC<HomeScreenProps> = () => {
-    const dispatch = useDispatch();
     const navigation = useNavigation<NavigationProp<RootStack.RootParamList, 'Home'>>()
     const route = useRoute<HomeRouteProp<'HomeScreen'>>()
-    const MODUCARD_DATA = MODUCARD_DATA_STR.map((item) => {
+    const MODU_CARD_DATA: Array<{svg: SkSVG | null}> = MODU_CARD_DATA_STR.map((item) => {
         return {svg: useSVG(item)}
     })
 
-    const toggleButton = () => dispatch(toggleTheme());
-
-  return (
-    <Container>
-      <Regular>Test용 어플입니다.</Regular>
-        <FlatList
-        horizontal
-        keyExtractor={(item, index) => index.toString()}
-                data={MODUCARD_DATA} renderItem={({item}) => {
-            if(!item.svg) return <></>
-            return (
-                    <TouchableOpacity>
-                        <Canvas style={{ width: 354, height: 256}}>
-                            <ImageSVG
-                                    svg={item.svg}
-                                    x={0}
-                                    y={0}
-                                    width={354}
-                                    height={256}
-                            />
-                        </Canvas>
-                    </TouchableOpacity>
-            )
-        }}
-        />
-      <SButton onPress={() => navigation.navigate('User', { userId: 'min121234' })} >
-        <SText>User</SText>
-      </SButton>
-      <SButton onPress={() => navigation.navigate('Profile')}><SText>Profile</SText></SButton>
-
-        <SButton onPress={toggleButton} style={{marginBottom: 30}}>
-          <SText>Toggle Theme</SText>
-        </SButton>
-        <BottomNavbar />
-    </Container>
+    return (
+            <>
+            <Container
+                contentContainerStyle={{justifyContent: 'center'}}
+                showsHorizontalScrollIndicator={false}
+            >
+                <ModuCardFlatList moduCardData={MODU_CARD_DATA} />
+                <HeaderText>My Modu Card</HeaderText>
+                <HomeMainContent />
+            </Container>
+            <BottomNavbar />
+            </>
     );
 }
 

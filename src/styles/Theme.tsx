@@ -5,17 +5,19 @@ const DefaultTheme = {
     GRAY: '#73737d',
     GRAY_LIGHT: '#f1f1f1',
     GRAY_DARK: '#1f1f1f',
-    PRIMARY: 'rgba(34, 174, 29, 0.7)',
+    PRIMARY: '#40A4FF',
     SECONDARY: '#632342',
     TITLE: '#000',
     TEXT: '#CCCCCC',
+    MAIN: '#009BCF',
   },
   fonts: {
-    normal: '18px',
-    thin: '16px',
-    medium: '22px',
-    bold: '24px',
-    big: '30px',
+      Jua: 'Jua',
+      NunitoRegular: 'Nunito-Regular',
+      NunitoLight: 'Nunito-Light',
+      NunitoBold: 'Nunito-Bold',
+      Stylish: 'Stylish',
+      Yeon: 'Yeon',
   }
 }
 
@@ -23,11 +25,18 @@ const darkTheme = {
   ...DefaultTheme,
   colors: {
   ...DefaultTheme.colors,
-  TITLE: '#fff',
+  TITLE: '#ffffff',
   TEXT: '#EEEEEE',
-  BACKGROUND: '#111216',
+
+  BACKGROUND_LIGHT: 'rgb(226, 226, 226)',
+  BACKGROUND: 'rgb(12, 12, 12)',
+  DEEP_BLUE: '#2C3D55',
+
+
+  POINT: 'rgb(233, 196, 106)',
   BUTTON_TEXT: '#f9f9f9',
-  BUTTON: '#209a19',
+  BUTTON: '#a1a3e5',
+  FLAT_LIST_BACKGROUND: '#3a3a3a',
   }
 };
 const lightTheme = {
@@ -36,10 +45,19 @@ const lightTheme = {
     ...DefaultTheme.colors,
     TITLE: '#000',
     TEXT: '#000',
-    BACKGROUND: '#fff',
+
+    BACKGROUND_LIGHT: 'rgb(42, 42, 42)',
+    BACKGROUND: 'rgb(246, 246, 246)',
+    DEEP_BLUE: 'rgb(48, 80, 103)',
+
+    POINT: 'rgb(233, 196, 106)',
     BUTTON_TEXT: '#474747',
     BUTTON: '#f1f3b5',
+    FLAT_LIST_BACKGROUND: '#a1e1f1',
   }
 };
 
-export { darkTheme, lightTheme };
+type FontTypes = typeof DefaultTheme.fonts;
+type ColorTypes = typeof DefaultTheme.colors;
+
+export { darkTheme, lightTheme, FontTypes, ColorTypes };

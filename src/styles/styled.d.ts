@@ -1,4 +1,5 @@
 import 'styled-components';
+import {ColorTypes, FontTypes} from "styles/Theme";
 
 declare module 'styled-components' {
   export interface DefaultTheme {
@@ -16,14 +17,8 @@ declare module 'styled-components' {
       BACKGROUND: string,
       BUTTON_TEXT: string,
       BUTTON: string,
-    } & colorSetType,
-    fonts: {
-      normal: string,
-      thin: string,
-      medium: string,
-      bold: string,
-      big: string
-    }
+    } & ColorTypes & colorSetType,
+    fonts: FontTypes
   }
 }
 

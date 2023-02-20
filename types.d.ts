@@ -25,8 +25,6 @@ declare global {
 
     type ProfileStackParamList = {
       ProfileScreen: undefined;
-      ProfileDetail: { username?: string };
-      ProfileSettings: { showEmails?: boolean };
     };
     }
   }
