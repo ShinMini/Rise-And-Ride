@@ -12,10 +12,10 @@ import {
 } from "@shopify/react-native-skia";
 
 // import moducard images
-import BLUE_BACKGROUND_MOBY_CARD from "assets/svg/modu_card_img/blue_background_moby_card.svg";
-import WHITE_BACKGROUND_MOBY_CARD from "assets/svg/modu_card_img/white_background_moby_card.svg";
-import GRID_MOBY_CARD from "assets/svg/modu_card_img/grid_moby_card.svg";
-import RIDING_MOBY_CARD from "assets/svg/modu_card_img/riding_moby_card.svg";
+import BLUE_BACKGROUND_MOBY_CARD from "assets/svg/modu_card/blue_background_moby_card.svg";
+import WHITE_BACKGROUND_MOBY_CARD from "assets/svg/modu_card/white_background_moby_card.svg";
+import GRID_MOBY_CARD from "assets/svg/modu_card/grid_moby_card.svg";
+import RIDING_MOBY_CARD from "assets/svg/modu_card/riding_moby_card.svg";
 import styled from "styled-components/native";
 import ModuCardFlatList from "src/components/Home/ModuCardFlatList";
 import HomeMainContent from "src/components/Home/HomeMainContent";
@@ -46,8 +46,8 @@ const MainText = styled.Text`
 `;
 
 const HomeScreen: FC<HomeScreenProps> = () => {
-    const navigation = useNavigation<NavigationProp<RootStack.RootParamList, 'Home'>>()
-    const route = useRoute<HomeRouteProp<'HomeScreen'>>()
+    // const navigation = useNavigation<NavigationProp<RootStack.RootParamList, 'Home'>>()
+    // const route = useRoute<HomeRouteProp<'HomeScreen'>>()
     const MODU_CARD_DATA: Array<{svg: SkSVG | null}> = MODU_CARD_DATA_STR.map((item) => {
         return {svg: useSVG(item)}
     })

@@ -31,11 +31,12 @@ const darkTheme = {
   BACKGROUND_LIGHT: 'rgb(226, 226, 226)',
   BACKGROUND: 'rgb(12, 12, 12)',
   DEEP_BLUE: '#2C3D55',
+  NAVIGATION_BACKGROUND: 'rgb(48, 80, 103)',
 
 
   POINT: 'rgb(233, 196, 106)',
   BUTTON_TEXT: '#f9f9f9',
-  BUTTON: '#a1a3e5',
+  BUTTON: '#4A518D',
   FLAT_LIST_BACKGROUND: '#3a3a3a',
   }
 };
@@ -49,10 +50,11 @@ const lightTheme = {
     BACKGROUND_LIGHT: 'rgb(42, 42, 42)',
     BACKGROUND: 'rgb(246, 246, 246)',
     DEEP_BLUE: 'rgb(48, 80, 103)',
+    NAVIGATION_BACKGROUND: '#2C3D55',
 
     POINT: 'rgb(233, 196, 106)',
     BUTTON_TEXT: '#474747',
-    BUTTON: '#f1f3b5',
+    BUTTON: '#647AC5',
     FLAT_LIST_BACKGROUND: '#a1e1f1',
   }
 };

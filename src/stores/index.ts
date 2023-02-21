@@ -8,8 +8,8 @@ export type ColorSchemeState = {
 }
 
 const initialColorScheme: ColorSchemeState = {
-  dark: false,
-  theme: lightTheme
+  dark: true,
+  theme: darkTheme
 };
 
 export const colorSchemeSlice = createSlice({

@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavigationProp, RouteProp, useNavigation, useRoute} from "@react-navigation/native";
+import {NavigationProp, useNavigation, useRoute} from "@react-navigation/native";
 import styled from "styled-components/native";
 
 import {Entypo, Ionicons, FontAwesome5} from '@expo/vector-icons';
@@ -14,11 +14,12 @@ const BottomNavContainer = styled.View`
     justify-content: center;
     align-items: center;
 
-    background-color: ${({theme}) => theme.colors.PRIMARY};
+    background-color: ${({theme}) => theme.colors.NAVIGATION_BACKGROUND};
+    opacity: 0.8;
 
     border-radius: 20px;
 
-    padding: 20px 30px;
+    padding: 15px 30px;
     width: 90%;
 `
 
