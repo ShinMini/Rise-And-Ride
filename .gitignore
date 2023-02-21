@@ -1,6 +1,7 @@
 node_modules/
 web-build/
 .vscode/
+.idea/
 .expo/
 dist/
 lib/
