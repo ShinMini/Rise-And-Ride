@@ -1,6 +1,7 @@
 {
+  "include": ["./types.d.ts", "./photo.d.ts"],
   "extends": "expo/tsconfig.base",
-      "compilerOptions": {
+    "compilerOptions": {
     // Target latest version of ECMAScript.
     "target": "esnext",
     // Search under node_modules for non-relative imports.

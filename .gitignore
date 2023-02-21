@@ -14,8 +14,9 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 
-# App set up files
-prettierrc.js
+# App config files
+.prettierrc.js
+.eslintrc.js
 
 # personal files
 todo.md
