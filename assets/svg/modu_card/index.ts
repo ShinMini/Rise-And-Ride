@@ -1,6 +1,6 @@
-import BlueBackgroundMobyCard from './blue-background-moby-card.svg';
-import GridMobyCard from './grid-moby-card.svg';
-import RidingMobyCard from './riding-moby-card.svg';
-import WhiteBackgroundMobyCard from './white-background-moby-card.svg';
+import BlueBackgroundMobyCard from './blue_background_moby_card.svg';
+import GridMobyCard from './grid_moby_card.svg';
+import RidingMobyCard from './riding_moby_card.svg';
+import WhiteBackgroundMobyCard from './white_background_moby_card.svg';
 
 export {BlueBackgroundMobyCard, GridMobyCard, RidingMobyCard, WhiteBackgroundMobyCard}

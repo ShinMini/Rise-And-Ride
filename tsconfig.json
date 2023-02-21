@@ -1,5 +1,4 @@
 {
-  "include": ["./types.d.ts", "./photo.d.ts"],
   "extends": "expo/tsconfig.base",
     "compilerOptions": {
     // Target latest version of ECMAScript.

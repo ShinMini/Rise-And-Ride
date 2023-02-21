@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="px" height="px" viewBox="0 0 152 220" version="1.1">
+<g id="surface1">
+<rect x="0" y="0" width="152" height="220" style="fill:rgb(38.823529%,14.509804%,16.470588%);fill-opacity:1;stroke:none;"/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(60.784314%,41.960784%,20.784314%);fill-opacity:1;" d="M 101 2.5 L 101 19 L 101.5 19 Z M 101 2.5 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(82.352941%,74.509804%,23.921569%);fill-opacity:1;" d="M 101.5 2.5 L 102.5 203.5 L 124 203.5 L 124 2.5 Z M 101.5 2.5 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(60.784314%,41.960784%,20.784314%);fill-opacity:1;" d="M 124 2.5 L 124 203.5 L 124.5 203.5 L 124.5 20.5 Z M 124 2.5 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(78.039216%,6.666667%,9.411765%);fill-opacity:1;" d="M 147.5 3 L 148 3.5 L 147.5 3 M 2 4 L 2.5 4.5 Z M 2 4 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,50.588235%,50.588235%);fill-opacity:1;" d="M 149.667969 10.332031 L 149.832031 10.667969 L 149.667969 10.332031 M 149.5 20.5 L 149.5 24 L 150 24 Z M 149.5 20.5 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(60.784314%,41.960784%,20.784314%);fill-opacity:1;" d="M 101.5 44.5 L 101.5 153.5 L 102 153.5 L 102 55 L 101.5 44.5 M 102 179.5 L 102 203.5 L 102.5 203.5 C 102.5 196.738281 104.605469 185.707031 102 179.5 Z M 102 179.5 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(78.039216%,6.666667%,9.411765%);fill-opacity:1;" d="M 58.5 203.5 L 59 204 Z M 58.5 203.5 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(82.352941%,74.509804%,23.921569%);fill-opacity:1;" d="M 123.332031 207.167969 L 123.667969 207.332031 Z M 123.332031 207.167969 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(78.039216%,6.666667%,9.411765%);fill-opacity:1;" d="M 124 207 L 124 207.5 L 133 207.5 L 124 207 M 52.5 207.5 L 53 208 L 52.5 207.5 M 19.5 217 L 19.5 217.5 L 23 217.5 Z M 19.5 217 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,50.588235%,50.588235%);fill-opacity:1;" d="M 23 217 L 23 217.5 L 24.5 217.5 Z M 23 217 "/>
+</g>
+</svg>

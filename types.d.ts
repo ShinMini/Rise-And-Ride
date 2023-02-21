@@ -26,8 +26,8 @@ declare global {
     type ProfileStackParamList = {
       ProfileScreen: undefined;
     };
-    }
   }
+}
 
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<RootStackParamList, Screen>
