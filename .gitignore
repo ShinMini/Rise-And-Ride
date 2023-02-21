@@ -1,6 +1,10 @@
 node_modules/
+web-build/
+.vscode/
 .expo/
 dist/
+lib/
+
 npm-debug.*
 *.jks
 *.p8
@@ -8,7 +12,16 @@ npm-debug.*
 *.key
 *.mobileprovision
 *.orig.*
-web-build/
+
+# App set up files
+prettierrc.js
+
+# personal files
+todo.md
 
 # macOS
 .DS_Store
+
+# for security
+.env
+
