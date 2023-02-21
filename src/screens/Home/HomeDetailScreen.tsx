@@ -8,7 +8,7 @@ type HomeDetailProps = StackScreenProps<RootStack.HomeStackParamList, 'HomeDetai
 const HomeDetailScreen: FC<HomeDetailProps> = ({ navigation, route}) =>  {
   return (
     <View>
-      <Text>Welcome to the Home Detail screen!</Text>
+      <Text>card Number: {route.params?.cardId}</Text>
     </View>
   );
 }

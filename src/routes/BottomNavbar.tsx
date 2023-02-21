@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {FC} from 'react';
+import {MotiView} from 'moti'
 import {NavigationProp, useNavigation, useRoute} from "@react-navigation/native";
 import styled from "styled-components/native";
 
 import {Entypo, Ionicons, FontAwesome5} from '@expo/vector-icons';
 
-const BottomNavContainer = styled.View`
+const BottomNavContainer = styled(MotiView)`
+    z-index: 50;
     position: absolute;
-    bottom: 25px;
+    bottom: 22px;
 
     flex-direction: row;
     align-self: center;
@@ -14,13 +16,11 @@ const BottomNavContainer = styled.View`
     justify-content: center;
     align-items: center;
 
-    background-color: ${({theme}) => theme.colors.NAVIGATION_BACKGROUND};
-    opacity: 0.8;
-
+    background-color: ${({theme}) => theme.colors.POINT};
     border-radius: 20px;
 
-    padding: 15px 30px;
-    width: 90%;
+    height: 70px;
+    width: 80%;
 `
 
 const BottomNavButton = styled.TouchableOpacity`
@@ -30,16 +30,21 @@ const BottomNavButton = styled.TouchableOpacity`
 `;
 
 
-export default function BottomNavbar() {
+export default function BottomNavbar({display = true}: {display: boolean}) {
     const navigation = useNavigation<NavigationProp<RootStack.RootParamList>>()
     const route = useRoute()
-    console.log(`route name : ${route.name}`)
     const iconSize = 30;
     const currentRouteName = route.name
     const iconColor = (isFocused: boolean) => (isFocused ? 'white' : 'black')
 
+    if(display)
     return (
-            <BottomNavContainer>
+            <BottomNavContainer
+                    from={{translateY: -100}}
+                    animate={{translateY: 0}}
+                    exit={{translateY: -100}}
+                    transition={{type: 'timing', duration: 500}}
+            >
                     <BottomNavButton onPress={() => navigation.navigate('Home')}>
                         <Entypo name="home" size={iconSize} color={iconColor(currentRouteName === "HomeScreen")} />
                     </BottomNavButton>
@@ -51,4 +56,6 @@ export default function BottomNavbar() {
                     </BottomNavButton>
             </BottomNavContainer>
     )
+
+    return <BottomNavContainer from={{translateY: 0}} animate={{translateY: 80}} exit={{translateY: 0}} />
 }

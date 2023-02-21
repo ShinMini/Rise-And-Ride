@@ -14,7 +14,7 @@ declare global {
 
     type HomeStackParamList = {
       HomeScreen: undefined;
-      HomeDetail: { itemId?: number };
+      HomeDetail: { cardId?: number };
     };
 
     type UserStackParamList = {

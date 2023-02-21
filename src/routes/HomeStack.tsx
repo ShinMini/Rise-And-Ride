@@ -12,7 +12,7 @@ export type HomeRouteProp<T extends keyof RootStack.HomeStackParamList> = RouteP
 export default function HomeStack() {
   return (
     <_HomeStack.Navigator screenOptions={{headerShown: false}}>
-      <_HomeStack.Screen name="HomeScreen" component={HomeScreen} options={{ title: 'Home', headerShown: true }} />
+      <_HomeStack.Screen name="HomeScreen" component={HomeScreen}/>
       <_HomeStack.Screen name="HomeDetail" component={HomeDetailScreen} />
     </_HomeStack.Navigator>
   );
