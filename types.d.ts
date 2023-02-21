@@ -10,6 +10,7 @@ declare global {
       Home: undefined;
       User: {userId?: string};
       Profile: undefined;
+      Menu: undefined;
     };
 
     type HomeStackParamList = {
@@ -26,6 +27,10 @@ declare global {
     type ProfileStackParamList = {
       ProfileScreen: undefined;
     };
+
+    type MenuStackParamList = {
+      MenuScreen: undefined;
+    }
   }
 }
 

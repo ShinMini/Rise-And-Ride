@@ -30,7 +30,7 @@ const BottomNavButton = styled.TouchableOpacity`
 `;
 
 
-export default function BottomNavbar({display = true}: {display: boolean}) {
+export default function BottomNavbar({display = true}: {display?: boolean}) {
     const navigation = useNavigation<NavigationProp<RootStack.RootParamList>>()
     const route = useRoute()
     const iconSize = 30;
@@ -40,19 +40,22 @@ export default function BottomNavbar({display = true}: {display: boolean}) {
     if(display)
     return (
             <BottomNavContainer
-                    from={{translateY: -100}}
+                    from={{translateY: 100}}
                     animate={{translateY: 0}}
-                    exit={{translateY: -100}}
+                    exit={{translateY: 100}}
                     transition={{type: 'timing', duration: 500}}
             >
                     <BottomNavButton onPress={() => navigation.navigate('Home')}>
-                        <Entypo name="home" size={iconSize} color={iconColor(currentRouteName === "HomeScreen")} />
+                        <Ionicons name="md-card" size={iconSize} color={iconColor(currentRouteName === "HomeScreen")} />
                     </BottomNavButton>
                     <BottomNavButton onPress={() => navigation.navigate('User', {userId: 'min121234'})}>
-                            <FontAwesome5 name="user-circle" size={iconSize} color={iconColor(currentRouteName === "UserScreen")} />
+                        <FontAwesome5 name="user-circle" size={iconSize} color={iconColor(currentRouteName === "UserScreen")} />
                     </BottomNavButton>
                     <BottomNavButton onPress={() => navigation.navigate('Profile')}>
                         <Ionicons name="settings" size={iconSize} color={iconColor(currentRouteName === "ProfileScreen")} />
+                    </BottomNavButton>
+                    <BottomNavButton onPress={() => navigation.navigate('Menu')}>
+                        <Ionicons name="menu" size={iconSize} color={iconColor(currentRouteName === "MenuScreen")} />
                     </BottomNavButton>
             </BottomNavContainer>
     )

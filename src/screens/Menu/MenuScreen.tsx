@@ -1,6 +1,6 @@
-// ProfileScreen.tsx
+// MenuScreen.tsx
 import React, { FC, useState } from 'react';
-import {Switch, Text, View, StyleSheet } from 'react-native';
+import {Switch} from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import {useDispatch, useSelector} from "react-redux";
 import {ColorSchemeState, toggleTheme} from "stores";
@@ -8,7 +8,7 @@ import {SText} from "components";
 import styled from "styled-components/native";
 import BottomNavbar from "routes/BottomNavbar";
 
-type ProfileScreenProps = StackScreenProps<RootStack.ProfileStackParamList, 'ProfileScreen'>;
+type MenuScreenProps = StackScreenProps<RootStack.MenuStackParamList, 'MenuScreen'>;
 
 const Container = styled.View`
     flex: 1;
@@ -18,7 +18,7 @@ const Container = styled.View`
     justify-content: center;
 `
 
-const ProfileScreen: FC<ProfileScreenProps> = ({ navigation }) => {
+const MenuScreen: FC<MenuScreenProps> = ({ navigation }) => {
     const isDark = useSelector((state: ColorSchemeState) => state.dark);
     const [nowTheme, setNowTheme] = useState(isDark);
     const toggleButton = () => dispatch(toggleTheme());
@@ -32,13 +32,13 @@ const ProfileScreen: FC<ProfileScreenProps> = ({ navigation }) => {
 
     return (
             <Container>
-                <SText size={16} >Welcome to the Profile Settings Screen!</SText>
+                <SText size={16} >Welcome to the Menu Settings Screen!</SText>
                 <SText> switch Theme {' '}
                     <Switch value={nowTheme} onValueChange={toggleColorScheme} />
                 </SText>
-                <BottomNavbar display={true}/>
+                <BottomNavbar display={isDark}/>
             </Container>
     );
 }
 
-export default ProfileScreen;
+export default MenuScreen;

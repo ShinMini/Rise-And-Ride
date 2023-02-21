@@ -14,6 +14,7 @@ function AppRouter() {
         <RootStack.Screen name="Home" component={HomeStack} />
         <RootStack.Screen name="User" component={UserStack} options={{ title: 'Users' }} />
         <RootStack.Screen name="Profile" component={ProfileStack} options={{ title: 'Profiles' }} />
+        {/*<RootStack.Screen name="Menu" component={MenuStack} options={{ title: 'Profiles' }} />*/}
 
       </RootStack.Navigator>
     </NavigationContainer>
