@@ -13,7 +13,7 @@ export type UserRouteProp<T extends keyof RootStack.UserStackParamList> = RouteP
 export default function UserStack() {
   return (
     <_UserStack.Navigator screenOptions={{headerShown: false}}>
-      <_UserStack.Screen name="UserScreen" component={UserScreen} options={{ title: 'User', headerShown: true}} />
+      <_UserStack.Screen name="UserScreen" component={UserScreen} options={{ title: 'User', headerShown: false}} />
       <_UserStack.Screen name="UserDetail" component={UserDetailScreen} options={{ title: 'Detail' }} />
       <_UserStack.Screen name="UserSettings" component={UserSettingsScreen} />
     </_UserStack.Navigator>

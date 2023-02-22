@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import {HomeStack, ProfileStack, UserStack} from 'routes';
+import {HomeStack, ProfileStack, UserStack, MenuStack} from 'routes';
 
 
 const RootStack= createStackNavigator<RootStack.RootParamList>();
@@ -14,7 +14,7 @@ function AppRouter() {
         <RootStack.Screen name="Home" component={HomeStack} />
         <RootStack.Screen name="User" component={UserStack} options={{ title: 'Users' }} />
         <RootStack.Screen name="Profile" component={ProfileStack} options={{ title: 'Profiles' }} />
-        {/*<RootStack.Screen name="Menu" component={MenuStack} options={{ title: 'Profiles' }} />*/}
+        <RootStack.Screen name="Menu" component={MenuStack} options={{ title: 'Menu' }} />
 
       </RootStack.Navigator>
     </NavigationContainer>

@@ -24,6 +24,11 @@ declare module "*.ttf" {
   export default value;
 }
 
+declare module "*.otf" {
+  const value: import("expo-font").FontSource;
+  export default value;
+}
+
 declare module "*.svg"
 
 // declare module '*.svg' {

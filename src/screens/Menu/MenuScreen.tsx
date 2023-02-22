@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {ColorSchemeState, toggleTheme} from "stores";
 import {SText} from "components";
 import styled from "styled-components/native";
-import BottomNavbar from "routes/BottomNavbar";
+import BottomNavbar from "routes/components/BottomNavbar";
 
 type MenuScreenProps = StackScreenProps<RootStack.MenuStackParamList, 'MenuScreen'>;
 

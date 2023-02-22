@@ -2,7 +2,7 @@
 import React, { FC } from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
 import {StackScreenProps } from '@react-navigation/stack';
-import BottomNavbar from "src/routes/BottomNavbar";
+import BottomNavbar from "routes/components/BottomNavbar";
 import {useNavigation} from "@react-navigation/native";
 import {UserNavigationProp} from "src/routes/UserStack";
 import {useSelector} from "react-redux";

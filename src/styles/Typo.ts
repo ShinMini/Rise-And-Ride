@@ -1,24 +1,17 @@
 import styled from "styled-components/native";
 import Animated from 'react-native-reanimated';
 
-const fontList = {
-  Jua: 'Jua',
-  NunitoRegular: 'Nunito-Regular',
-  NunitoLight: 'Nunito-Light',
-  NunitoBold: 'Nunito-Bold',
-  Stylish: 'Stylish',
-  Yeon: 'Yeon',
-}
+import {DefaultFonts} from "styles/Theme";
 
 interface TextProps {
   color?: string;
   fontSize?: number;
   align?: 'left' | 'center' | 'right';
-  fontFamily?: keyof typeof fontList;
+  fontFamily?: keyof typeof DefaultFonts;
 }
 
 const Thin = styled(Animated.Text)<TextProps>`
-  font-family: ${({fontFamily}) => fontFamily ? fontList[fontFamily] : fontList.NunitoLight};
+  font-family: ${({fontFamily}) => fontFamily ? DefaultFonts[fontFamily] : DefaultFonts.NaNumThin};
   font-weight: 100;
   font-size: ${({fontSize}) => fontSize || 15}px;
 
@@ -27,7 +20,7 @@ const Thin = styled(Animated.Text)<TextProps>`
 `;
 
 const Regular = styled(Animated.Text)<TextProps>`
-  font-family: ${({fontFamily}) => fontFamily ? fontList[fontFamily] : fontList.NunitoRegular};
+  font-family: ${({fontFamily}) => fontFamily ? DefaultFonts[fontFamily] : DefaultFonts.NaNumRegular};
   font-weight: normal;
   font-size: ${({fontSize}) => fontSize || 18}px;
 
@@ -36,7 +29,7 @@ const Regular = styled(Animated.Text)<TextProps>`
 `;
 
 const Medium = styled(Animated.Text)<TextProps>`
-  font-family: ${({fontFamily}) => fontFamily ? fontList[fontFamily] : fontList.NunitoRegular};
+  font-family: ${({fontFamily}) => fontFamily ? DefaultFonts[fontFamily] : DefaultFonts.NaNumMedium};
   font-weight: 500;
   font-size: ${({fontSize}) => fontSize || 24}px;
 
@@ -46,7 +39,7 @@ const Medium = styled(Animated.Text)<TextProps>`
 
 
 const Bold = styled(Animated.Text)<TextProps>`
-  font-family: ${({fontFamily}) => fontFamily ? fontList[fontFamily] : fontList.NunitoBold};
+  font-family: ${({fontFamily}) => fontFamily ? DefaultFonts[fontFamily] : DefaultFonts.NaNumBold};
   font-weight: 700;
   font-size: ${({fontSize}) => fontSize || 27}px;
 
@@ -55,7 +48,7 @@ const Bold = styled(Animated.Text)<TextProps>`
 `;
 
 const ExtraBold = styled(Animated.Text)<TextProps>`
-  font-family: ${({fontFamily}) => fontFamily ? fontList[fontFamily] : fontList.NunitoBold};
+  font-family: ${({fontFamily}) => fontFamily ? DefaultFonts[fontFamily] : DefaultFonts.NaNumExtraBold};
   font-weight: 900;
   font-size: ${({fontSize}) => fontSize || 30}px;
 
@@ -64,3 +57,38 @@ const ExtraBold = styled(Animated.Text)<TextProps>`
 `;
 
 export {Thin, Regular, Medium, Bold, ExtraBold};
+
+
+const DigitThin = styled(Animated.Text)<TextProps>`
+  font-family: ${({fontFamily}) => fontFamily ? DefaultFonts[fontFamily] : DefaultFonts.DigitThin};
+  font-size: ${({fontSize}) => fontSize || 20}px;
+
+  color: ${({color, theme}) => color || theme.colors.GRAY};
+  text-align: ${({align}) => align || 'left'};
+`;
+
+const DigitRegular = styled(Animated.Text)<TextProps>`
+  font-family: ${({fontFamily}) => fontFamily ? DefaultFonts[fontFamily] : DefaultFonts.DigitRegular};
+  font-size: ${({fontSize}) => fontSize || 24}px;
+
+  color: ${({color, theme}) => color || theme.colors.GRAY};
+  text-align: ${({align}) => align || 'left'};
+`;
+
+const DigitBold = styled(Animated.Text)<TextProps>`
+  font-family: ${({fontFamily}) => fontFamily ? DefaultFonts[fontFamily] : DefaultFonts.DigitBold};
+  font-size: ${({fontSize}) => fontSize || 24}px;
+
+  color: ${({color, theme}) => color || theme.colors.GRAY};
+  text-align: ${({align}) => align || 'left'};
+`;
+
+const DigitExtraBold = styled(Animated.Text)<TextProps>`
+  font-family: ${({fontFamily}) => fontFamily ? DefaultFonts[fontFamily] : DefaultFonts.DigitExtraBold};
+  font-size: ${({fontSize}) => fontSize || 24}px;
+
+  color: ${({color, theme}) => color || theme.colors.GRAY};
+  text-align: ${({align}) => align || 'left'};
+`;
+
+export {DigitRegular, DigitThin, DigitBold, DigitExtraBold};

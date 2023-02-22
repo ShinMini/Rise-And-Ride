@@ -11,7 +11,7 @@ export type ProfileRouteProp<T extends keyof RootStack.ProfileStackParamList> = 
 export default function ProfileStack() {
   return (
     <_ProfileStack.Navigator screenOptions={{headerShown: false}} initialRouteName={"ProfileScreen"}>
-        <_ProfileStack.Screen name="ProfileScreen" component={ProfileScreen} options={{ title: 'Profile', headerShown: true }}  />
+        <_ProfileStack.Screen name="ProfileScreen" component={ProfileScreen} options={{ title: 'Profile', headerShown: false }}  />
     </_ProfileStack.Navigator>
   );
 }
