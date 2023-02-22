@@ -11,7 +11,7 @@ interface TextProps {
 }
 
 const Thin = styled(Animated.Text)<TextProps>`
-  font-family: ${({fontFamily}) => fontFamily ? DefaultFonts[fontFamily] : DefaultFonts.NaNumThin};
+  font-family: ${({fontFamily}) => fontFamily ? DefaultFonts[fontFamily] : DefaultFonts.Roboto};
   font-weight: 100;
   font-size: ${({fontSize}) => fontSize || 15}px;
 
@@ -20,7 +20,7 @@ const Thin = styled(Animated.Text)<TextProps>`
 `;
 
 const Regular = styled(Animated.Text)<TextProps>`
-  font-family: ${({fontFamily}) => fontFamily ? DefaultFonts[fontFamily] : DefaultFonts.NaNumRegular};
+  font-family: ${({fontFamily}) => fontFamily ? DefaultFonts[fontFamily] : DefaultFonts.Roboto};
   font-weight: normal;
   font-size: ${({fontSize}) => fontSize || 18}px;
 
@@ -29,7 +29,7 @@ const Regular = styled(Animated.Text)<TextProps>`
 `;
 
 const Medium = styled(Animated.Text)<TextProps>`
-  font-family: ${({fontFamily}) => fontFamily ? DefaultFonts[fontFamily] : DefaultFonts.NaNumMedium};
+  font-family: ${({fontFamily}) => fontFamily ? DefaultFonts[fontFamily] : DefaultFonts.Roboto};
   font-weight: 500;
   font-size: ${({fontSize}) => fontSize || 24}px;
 
@@ -39,7 +39,7 @@ const Medium = styled(Animated.Text)<TextProps>`
 
 
 const Bold = styled(Animated.Text)<TextProps>`
-  font-family: ${({fontFamily}) => fontFamily ? DefaultFonts[fontFamily] : DefaultFonts.NaNumBold};
+  font-family: ${({fontFamily}) => fontFamily ? DefaultFonts[fontFamily] : DefaultFonts.Roboto};
   font-weight: 700;
   font-size: ${({fontSize}) => fontSize || 27}px;
 
@@ -48,7 +48,7 @@ const Bold = styled(Animated.Text)<TextProps>`
 `;
 
 const ExtraBold = styled(Animated.Text)<TextProps>`
-  font-family: ${({fontFamily}) => fontFamily ? DefaultFonts[fontFamily] : DefaultFonts.NaNumExtraBold};
+  font-family: ${({fontFamily}) => fontFamily ? DefaultFonts[fontFamily] : DefaultFonts.Roboto};
   font-weight: 900;
   font-size: ${({fontSize}) => fontSize || 30}px;
 

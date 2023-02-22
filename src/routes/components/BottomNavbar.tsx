@@ -1,9 +1,12 @@
 import React, {FC} from 'react';
 import {MotiView} from 'moti'
 import {NavigationProp, useNavigation, useRoute} from "@react-navigation/native";
-import styled from "styled-components/native";
+import styled, {DefaultTheme} from "styled-components/native";
 
 import {Entypo, Ionicons, FontAwesome5} from '@expo/vector-icons';
+import {useSelector} from "react-redux";
+import {ColorSchemeState} from "stores";
+import {darkTheme, lightTheme} from "styles/Theme";
 
 const BottomNavContainer = styled(MotiView)`
     z-index: 50;
@@ -15,7 +18,7 @@ const BottomNavContainer = styled(MotiView)`
 
     justify-content: center;
 
-    background-color: ${({theme}) => theme.colors.MAIN};
+    background-color: ${({theme}) => theme.colors.NAVIGATION_BACKGROUND};
     border-radius: 20px;
 
     padding-top: 25px;
@@ -31,11 +34,13 @@ const BottomNavButton = styled.TouchableOpacity`
 
 
 export default function BottomNavbar({display = true}: {display?: boolean}) {
+    const isDark = useSelector((state: ColorSchemeState) => state.dark)
     const navigation = useNavigation<NavigationProp<RootStack.RootParamList>>()
     const route = useRoute()
     const iconSize = 30;
     const currentRouteName = route.name
-    const iconColor = (isFocused: boolean) => (isFocused ? 'white' : 'black')
+    const defaultIconColor = isDark ? darkTheme.colors.GRAY_LIGHT : lightTheme.colors.GRAY_DARK
+    const iconColor = (isFocused: boolean) => (isFocused ? '#40A4FF' : defaultIconColor)
 
     if(display)
     return (

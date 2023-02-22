@@ -2,7 +2,7 @@ import {ContentContainer, ContentText, HeaderText, styles} from "src/components/
 import {Image} from "moti";
 import React from "react";
 
-const HomeContent: React.FC = () => (
+const HomeTextContent: React.FC = () => (
 <ContentContainer>
     <HeaderText>모두페이 카드를 통해 전기차 충전시, 10% 적립!</HeaderText>
 
@@ -19,4 +19,4 @@ const HomeContent: React.FC = () => (
 </ContentContainer>
 )
 
-export default HomeContent
+export default HomeTextContent

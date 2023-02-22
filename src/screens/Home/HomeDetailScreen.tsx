@@ -5,7 +5,7 @@ import {View, Text, ScrollView} from 'react-native';
 import {ButtonText, Container, ContentButton, styles} from 'src/components/Home/home.style';
 import HeaderNavBar from "routes/components/HeaderNavBar";
 import BottomNavbar from "routes/components/BottomNavbar";
-import HomeContent from "src/components/Home/HomeContent";
+import HomeTextContent from "src/components/Home/HomeTextContent";
 import StandardTerms from "src/components/Home/StandardTerms";
 import HomeCardView from "src/components/Home/HomeCardView";
 import {useSelector} from "react-redux";
@@ -27,7 +27,7 @@ const HomeDetailScreen: FC<HomeDetailProps> = ({ navigation, route}) =>  {
                       scrollEventThrottle={8}
               >
 
-                  <HomeContent key="HomeContent_Home" />
+                  <HomeTextContent key="HomeContent_Home" />
 
                   <ContentButton key="ContentButton_Home" onPress={() => navigation.navigate('HomeScreen')}
                                  style={[styles.shadow, {shadowColor: isDark ? 'white' : 'black'}]}

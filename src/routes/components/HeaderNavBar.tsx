@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 import styled from "styled-components/native";
-import {Bold} from "styles/Typo";
+import {Bold, ExtraBold} from "styles/Typo";
 import {MotiView} from "moti";
 
 const Header = styled(MotiView)`
@@ -9,9 +9,9 @@ const Header = styled(MotiView)`
     top: 0;
 
     width: 100%;
-    height: 90px;
+    height: 97px;
 
-    background-color: ${({theme}) => theme.colors.MAIN};
+    background-color: ${({theme}) => theme.colors.NAVIGATION_BACKGROUND};
 
     border-bottom-color: ${({theme}) => theme.colors.OPACITY_BORDER};
     border-bottom-width: 3px;
@@ -19,10 +19,9 @@ const Header = styled(MotiView)`
     border-bottom-right-radius: 2.5px;
 `
 
-const HeaderText = styled(Bold)`
+const HeaderText = styled(ExtraBold)`
     padding-top: 60px;
-    padding-bottom: 5px;
-    color: ${({theme}) => theme.colors.BACKGROUND};
+    color: ${({theme}) => theme.colors.PRIMARY};
 
     border-bottom-color: ${({theme}) => theme.colors.GRAY_LIGHT};
     border-bottom-width: 3px;
@@ -46,7 +45,7 @@ const HeaderNavBar: FC<HeaderNavBarProps> = ({display = true, headerTitle = '', 
                     exit={{translateY: -100, opacity: 0.2}}
                     transition={{type: 'timing', duration: 500}}
             >
-                <HeaderText align="center" fontFamily={"Roboto"}>
+                <HeaderText align="center" fontFamily={"DigitExtraBold"}>
                     {headerTitle}
                 </HeaderText>
             </Header>

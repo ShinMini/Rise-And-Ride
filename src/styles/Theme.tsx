@@ -1,13 +1,16 @@
 export const DefaultColors = {
-    WHITE: '#ffffff',
+    WHITE: '#FFFFFF',
     BLACK: '#000000',
     GRAY_LIGHT: '#f1f1f1',
-    GRAY_DARK: '#1f1f1f',
+    GRAY_DARK: '#1F1F1F',
     PRIMARY: '#40A4FF',
     SECONDARY: '#632342',
     TITLE: '#000',
     TEXT: '#CCCCCC',
     MAIN: '#009BCF',
+    POINT: 'rgb(233, 196, 106)',
+    GREEN: '#2A9D8F',
+    RED: '#F24333'
 }
 
 export const DefaultFonts = {
@@ -49,20 +52,19 @@ const darkTheme = {
   TITLE: '#ffffff',
   TEXT: '#EEEEEE',
 
-  BACKGROUND_LIGHT: 'rgb(226, 226, 226)',
+  BACKGROUND_OPPOSITE: 'rgb(246, 246, 246)',
   BACKGROUND: 'rgb(12, 12, 12)',
   DEEP_BLUE: '#2C3D55',
-  NAVIGATION_BACKGROUND: 'rgba(203, 222, 232, 0.9)',
+  NAVIGATION_BACKGROUND: 'rgba(203, 222, 232, 0.3)',
 
   OPACITY_BORDER: 'rgba(255, 255, 255, 0.1)',
 
 
-  GRAY: '#73737d',
+  GRAY: '#93939d',
 
-  POINT: 'rgba(233, 196, 106)',
   BUTTON_TEXT: '#f9f9f9',
   BUTTON: '#4A518D',
-  FLAT_LIST_BACKGROUND: '#3a3a3a',
+  SURFACE: '#3a3a3a',
   }
 };
 const lightTheme = {
@@ -72,7 +74,7 @@ const lightTheme = {
     TITLE: '#000',
     TEXT: '#000',
 
-    BACKGROUND_LIGHT: 'rgb(42, 42, 42)',
+    BACKGROUND_OPPOSITE: 'rgb(22, 24, 27)',
     BACKGROUND: 'rgb(246, 246, 246)',
     DEEP_BLUE: 'rgb(48, 80, 103)',
     NAVIGATION_BACKGROUND: 'rgba(48, 53, 63, 0.7)',
@@ -81,10 +83,9 @@ const lightTheme = {
 
     GRAY: '#23232d',
 
-    POINT: 'rgb(233, 196, 106)',
     BUTTON_TEXT: '#474747',
     BUTTON: '#647AC5',
-    FLAT_LIST_BACKGROUND: '#a1e1f1',
+    SURFACE: '#AaAaAa',
   }
 };
 

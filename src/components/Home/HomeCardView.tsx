@@ -1,11 +1,12 @@
 import {Gesture, GestureDetector} from "react-native-gesture-handler";
 import Animated, {useAnimatedStyle, useSharedValue, withSpring, withTiming} from "react-native-reanimated";
 import {Canvas, ImageSVG, SkSVG} from "@shopify/react-native-skia";
-import {styles} from "src/components/Home/home.style";
+import {PaddingBox, styles} from "src/components/Home/home.style";
 import React from "react";
 import styled from "styled-components/native";
 import {MotiView} from "moti";
 import {Dimensions} from "react-native";
+import {DigitThin, Thin} from "styles/Typo";
 
 const {width, height} = Dimensions.get('window');
 const [CARD_WIDTH, CARD_HEIGHT] = [270, 170];
@@ -17,6 +18,19 @@ const CardAnimationView = styled(MotiView)`
     align-items: center;
     justify-content: center;
 `
+
+const CardNumber = styled(DigitThin)`
+    font-size: 22px;
+    font-weight: 700;
+
+    padding-top: 10px;
+    right: ${CARD_WIDTH * 0.25}px;
+`
+
+const CardOwnerName = styled(Thin)`
+    color: ${({theme}) => theme.colors.TEXT};
+    padding: 5px 0 5px ${CARD_WIDTH * 0.75}px;
+`;
 
 type HomeCardViewProps = {
     cards: Array<SkSVG | null>
@@ -77,20 +91,26 @@ const HomeCardView: React.FC<HomeCardViewProps> = ({cards, activeCardIndex, isDa
         ]}))
 
     return (
-            <CardAnimationView
-                    from={{translateY: -100}}
-                    animate={{translateY: 0}}
-                    exit={{translateY: -100}}
-                    transition={{type: 'timing', duration: 500}}
-            >
-                <GestureDetector gesture={gesture} >
+            <>
+                <CardAnimationView
+                        from={{translateY: -100}}
+                        animate={{translateY: 0}}
+                        exit={{translateY: -100}}
+                        transition={{type: 'timing', duration: 500}}
+                >
+                    {/*<GestureDetector gesture={gesture} >*/}
                     <Animated.View style={cardAnim}>
                         <Canvas style={[styles.canvas, styles.shadow, {shadowColor: isDark ? 'white' : 'black'}]}>
                             <ImageSVG svg={cards[activeCardIndex]!} x={0} y={0} width={CARD_WIDTH} height={CARD_HEIGHT} />
                         </Canvas>
                     </Animated.View>
-                </GestureDetector>
-            </CardAnimationView>
+                    {/*</GestureDetector>*/}
+                </CardAnimationView>
+
+                <PaddingBox />
+                <CardNumber>5171 4455 2211 0000</CardNumber>
+                <CardOwnerName>Hyeon Min Shin</CardOwnerName>
+            </>
     )
 }
 
