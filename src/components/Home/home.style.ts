@@ -10,7 +10,6 @@ const [CARD_WIDTH, CARD_HEIGHT] = [270, 170];
 
 /** ------------ styled components  ----------------*/
 const Container = styled.View`
-    padding-top: 100px;
     flex: 1;
 
     background-color: ${({theme}) => theme.colors.BACKGROUND};
@@ -37,6 +36,7 @@ const ButtonText = styled(Bold)`
 `
 
 const ContentContainer = styled.View`
+    padding-top: 80px;
     flex: 1;
     justify-content: center;
     align-items: center;
@@ -70,7 +70,7 @@ export const styles = StyleSheet.create({
     width: CARD_WIDTH,
     height: CARD_HEIGHT,
 
-    top: 30,
+    top: 120,
     left: (width - CARD_WIDTH) / 2,
   },
   shadow :{

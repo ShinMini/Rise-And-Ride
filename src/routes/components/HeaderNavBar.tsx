@@ -5,10 +5,11 @@ import {MotiView} from "moti";
 
 const Header = styled(MotiView)`
     position: absolute;
+    z-index: 50;
     top: 0;
 
     width: 100%;
-    height: 100px;
+    height: 90px;
 
     background-color: ${({theme}) => theme.colors.MAIN};
 
@@ -20,13 +21,13 @@ const Header = styled(MotiView)`
 
 const HeaderText = styled(Bold)`
     padding-top: 60px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     color: ${({theme}) => theme.colors.BACKGROUND};
 
     border-bottom-color: ${({theme}) => theme.colors.GRAY_LIGHT};
     border-bottom-width: 3px;
 
-    font-size: 25px;
+    font-size: 22px;
 `
 
 type HeaderNavBarProps = {

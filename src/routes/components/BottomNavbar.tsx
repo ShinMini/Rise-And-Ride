@@ -8,19 +8,19 @@ import {Entypo, Ionicons, FontAwesome5} from '@expo/vector-icons';
 const BottomNavContainer = styled(MotiView)`
     z-index: 50;
     position: absolute;
-    bottom: 22px;
+    bottom: 0;
 
     flex-direction: row;
     align-self: center;
 
     justify-content: center;
-    align-items: center;
 
     background-color: ${({theme}) => theme.colors.MAIN};
     border-radius: 20px;
 
-    height: 70px;
-    width: 90%;
+    padding-top: 25px;
+    padding-bottom: 30px;
+    width: 100%;
 `
 
 const BottomNavButton = styled.TouchableOpacity`
