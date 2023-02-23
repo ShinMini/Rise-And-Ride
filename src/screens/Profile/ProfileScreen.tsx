@@ -1,12 +1,12 @@
 // ProfileScreen.tsx
-import React, { FC, useState } from 'react';
-import {Switch, Text, View, StyleSheet } from 'react-native';
+import React, { FC} from 'react';
+import {Switch} from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
-import {useDispatch, useSelector} from "react-redux";
-import {ColorSchemeState, toggleTheme} from "stores";
 import {SText} from "components";
 import styled from "styled-components/native";
-import BottomNavbar from "routes/components/BottomNavbar";
+import BottomNavBar from "routes/components/BottomNavBar";
+import HeaderNavBar from "routes/components/HeaderNavBar";
+import useThemes from "src/hooks/useTheme";
 
 type ProfileScreenProps = StackScreenProps<RootStack.ProfileStackParamList, 'ProfileScreen'>;
 
@@ -19,24 +19,16 @@ const Container = styled.View`
 `
 
 const ProfileScreen: FC<ProfileScreenProps> = ({ navigation }) => {
-    const isDark = useSelector((state: ColorSchemeState) => state.dark);
-    const [nowTheme, setNowTheme] = useState(isDark);
-    const toggleButton = () => dispatch(toggleTheme());
-
-    React.useEffect(() => {
-        if(nowTheme !== isDark) toggleButton();
-    }, [nowTheme])
-
-    const dispatch = useDispatch();
-    const toggleColorScheme = () => setNowTheme((prevState) => !prevState);
+    const {isDark, toggleButton, theme} = useThemes();
+    const toggleColorScheme = () => { toggleButton(); return }
 
     return (
             <Container>
+                <HeaderNavBar title="Setting" canGoBack theme={theme} />
                 <SText size={16} >Welcome to the Profile Settings Screen!</SText>
-                <SText> switch Theme {' '}
-                    <Switch value={nowTheme} onValueChange={toggleColorScheme} />
-                </SText>
-                <BottomNavbar display={true}/>
+                <SText> switch Theme</SText>
+                <Switch value={isDark} onValueChange={toggleColorScheme} style={{alignSelf: 'center'}}/>
+                <BottomNavBar display theme={theme} />
             </Container>
     );
 }

@@ -6,7 +6,10 @@ import {useDispatch, useSelector} from "react-redux";
 import {ColorSchemeState, toggleTheme} from "stores";
 import {SText} from "components";
 import styled from "styled-components/native";
-import BottomNavbar from "routes/components/BottomNavbar";
+import BottomNavBar from "routes/components/BottomNavBar";
+import useThemes from "src/hooks/useTheme";
+import HeaderNavBar from "routes/components/HeaderNavBar";
+import Spacing from "styles/Spacing";
 
 type MenuScreenProps = StackScreenProps<RootStack.MenuStackParamList, 'MenuScreen'>;
 
@@ -14,29 +17,33 @@ const Container = styled.View`
     flex: 1;
     background-color: ${({theme}) => theme.colors.BACKGROUND};
 
-    align-content: center;
-    justify-content: center;
+    justify-items: center;
 `
+const MenuOptionBox = styled.TouchableOpacity`
+    width: 80%;
+    height: ${Spacing.box.sm}px;
+
+    margin-left: 10%;
+
+    background-color: ${({theme}) => theme.colors.PRIMARY};
+
+    justify-content: center;
+`;
 
 const MenuScreen: FC<MenuScreenProps> = ({ navigation }) => {
-    const isDark = useSelector((state: ColorSchemeState) => state.dark);
-    const [nowTheme, setNowTheme] = useState(isDark);
-    const toggleButton = () => dispatch(toggleTheme());
-
-    React.useEffect(() => {
-        if(nowTheme !== isDark) toggleButton();
-    }, [nowTheme])
-
-    const dispatch = useDispatch();
-    const toggleColorScheme = () => setNowTheme((prevState) => !prevState);
+    const {isDark, toggleButton, theme} = useThemes();
+    const toggleColorScheme = () => { toggleButton(); return }
 
     return (
             <Container>
-                <SText size={16} >Welcome to the Menu Settings Screen!</SText>
-                <SText> switch Theme {' '}
-                    <Switch value={nowTheme} onValueChange={toggleColorScheme} />
-                </SText>
-                <BottomNavbar display={isDark}/>
+                <HeaderNavBar title="Menu" canGoBack theme={theme}/>
+                <MenuOptionBox>
+                    <SText> switch Theme </SText>
+                </MenuOptionBox>
+
+                <SText size={Spacing.icon.md} >Welcome to the Menu Screen!</SText>
+                <Switch value={isDark} onValueChange={toggleColorScheme} style={{alignSelf: 'center'}}/>
+                <BottomNavBar display theme={theme} />
             </Container>
     );
 }

@@ -10,7 +10,7 @@ import {useSelector} from "react-redux";
 import {ColorSchemeState} from "stores";
 import {useNavigation} from "@react-navigation/native";
 import {HomeNavigationProp} from "routes/HomeStack";
-import BottomNavbar from "routes/components/BottomNavbar";
+import BottomNavBar from "routes/components/BottomNavBar";
 import HeaderNavBar from "routes/components/HeaderNavBar";
 import { Container, Separator, styles } from "src/components/Home/home.style";
 import HomeCardView from "src/components/Home/HomeCardView";
@@ -35,7 +35,7 @@ const HomeScreen: FC<HomeScreenProps> = () => {
 
     return (
             <Container>
-                <HeaderNavBar display={displayHeader} headerTitle="Modu Card" />
+                <HeaderNavBar display={displayHeader} title="Modu Card"  animate />
 
                 <ScrollView
                         style={[styles.scrollView]}
@@ -56,7 +56,7 @@ const HomeScreen: FC<HomeScreenProps> = () => {
 
                 </ScrollView>
 
-                <BottomNavbar display={displayHeader}/>
+                {/*<BottomNavBar display={displayHeader} animate/>*/}
             </Container>
     )
 }

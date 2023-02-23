@@ -2,7 +2,7 @@
 import React, { FC } from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
 import {StackScreenProps } from '@react-navigation/stack';
-import BottomNavbar from "routes/components/BottomNavbar";
+import BottomNavBar from "routes/components/BottomNavBar";
 import {useNavigation} from "@react-navigation/native";
 import {UserNavigationProp} from "src/routes/UserStack";
 import {useSelector} from "react-redux";
@@ -18,7 +18,7 @@ const UserScreen : FC<UserScreenProps> = ({route}) => {
     <View style={StyleSheet.absoluteFill}>
       <Text>Welcome to the User screen!</Text>
       <Button title="Go to User Detail screen" onPress={() => navigation.navigate('UserDetail', { userId: route.params?.userId})} />
-      <BottomNavbar display={isDark}/>
+      <BottomNavBar display={isDark}/>
     </View>
   );
 }

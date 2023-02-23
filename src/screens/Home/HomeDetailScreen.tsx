@@ -4,7 +4,7 @@ import React, { FC } from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import {ButtonText, Container, ContentButton, styles} from 'src/components/Home/home.style';
 import HeaderNavBar from "routes/components/HeaderNavBar";
-import BottomNavbar from "routes/components/BottomNavbar";
+import BottomNavBar from "routes/components/BottomNavBar";
 import HomeTextContent from "src/components/Home/HomeTextContent";
 import StandardTerms from "src/components/Home/StandardTerms";
 import HomeCardView from "src/components/Home/HomeCardView";
@@ -37,7 +37,7 @@ const HomeDetailScreen: FC<HomeDetailProps> = ({ navigation, route}) =>  {
 
               </ScrollView>
 
-              <BottomNavbar display={displayHeader}/>
+              <BottomNavBar display={displayHeader}/>
           </Container>
   );
 }
