@@ -3,7 +3,7 @@ import styled, {DefaultTheme} from "styled-components/native";
 import {DigitExtraBold, ExtraBold} from "styles/Typo";
 import {MotiView} from "moti";
 import { Ionicons } from '@expo/vector-icons';
-import {darkTheme, lightTheme} from "styles/Theme";
+import {darkTheme} from "styles/Theme";
 import {NavigationProp, useNavigation} from "@react-navigation/native";
 import getAnimationProps from "src/utils/getAnimationProps";
 import Spacing from "styles/Spacing";
@@ -103,8 +103,17 @@ const HeaderNavBar: FC<HeaderNavBarProps> = ({display = true, title = '', canGoB
         setExpanded(!expanded)
     }
 
-    const onPressExpandedIcon = (goto: keyof Omit<RootStack.RootStackParamList, 'User'>) => {
-        navigation.navigate(goto)
+    type onPressExpandedIconParams = {
+        goto: keyof Omit<RootStack.RootStackParamList, 'User'>
+    } | {
+        goto: 'User'
+        params: {userId?: string}
+    }
+    const onPressExpandedIcon = (props: onPressExpandedIconParams) => {
+        if(props.goto === 'User')
+            navigation.navigate(props.goto, props.params)
+
+        navigation.navigate(props.goto as keyof Omit<RootStack.RootStackParamList, 'User'>)
         onPressMenuIcon()
     }
 
@@ -150,21 +159,21 @@ const HeaderNavBar: FC<HeaderNavBarProps> = ({display = true, title = '', canGoB
 
                 {/* expanded header components */}
                 <HeaderExpandedComponent style={animHeaderExpandedStyle}>
-                    <HeaderExpandedButton onPress={() => onPressExpandedIcon('Menu', { screen: 'ProfileScreen' })} borderTop >
+                    <HeaderExpandedButton onPress={() => onPressExpandedIcon({goto: 'User', params: {userId: 'Hyeon Min Shin'}})} borderTop >
                         <HeaderExpandedTitle >
                             My Page
                         </HeaderExpandedTitle>
                         <HeaderExpandedIcon name="person-outline" color={expandedColor} />
                     </HeaderExpandedButton>
 
-                    <HeaderExpandedButton onPress={() => onPressExpandedIcon('Menu')}>
+                    <HeaderExpandedButton onPress={() => onPressExpandedIcon({goto: 'Menu'})}>
                         <HeaderExpandedTitle >
                             Settings
                         </HeaderExpandedTitle>
                         <HeaderExpandedIcon name="settings-outline" color={expandedColor} />
                     </HeaderExpandedButton>
 
-                    <HeaderExpandedButton onPress={() => onPressExpandedIcon('Home')}>
+                    <HeaderExpandedButton onPress={() => onPressExpandedIcon({goto: 'Home'})}>
                         <HeaderExpandedTitle >
                             About
                         </HeaderExpandedTitle>

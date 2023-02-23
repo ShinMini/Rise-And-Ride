@@ -53,8 +53,10 @@ const BottomNavBar: React.FC<BottomNavBarProps> = ({display = true, animate= fal
     // animation
     const {from, to, transition} = getAnimationProps(display, animate, 'down');
 
+    console.log(`route name: ${name}`)
+
     // styles
-    const iconColor = (iconName: string) => ( (name === iconName + 'Screen') ? theme.colors.PRIMARY : theme.colors.TITLE )
+    const iconColor = (iconName: string) => ( (name === iconName) ? theme.colors.PRIMARY : theme.colors.TITLE )
 
     return (
             <BottomNavContainer

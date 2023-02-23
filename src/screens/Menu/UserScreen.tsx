@@ -4,21 +4,20 @@ import {View, Text, Button, StyleSheet} from 'react-native';
 import {StackScreenProps } from '@react-navigation/stack';
 import BottomNavBar from "routes/components/BottomNavBar";
 import {useNavigation} from "@react-navigation/native";
-import {UserNavigationProp} from "src/routes/UserStack";
-import {useSelector} from "react-redux";
-import {ColorSchemeState} from "stores";
+import {UserNavigationProp} from "routes/UserStack";
+import useThemes from "src/hooks/useTheme";
 
-type UserScreenProps = StackScreenProps<RootStack.UserStackParamList, 'UserScreen'>;
+type UserScreenProps = StackScreenProps<RootStack.MenuStackParamList, 'UserScreen'>;
 
 const UserScreen : FC<UserScreenProps> = ({route}) => {
     const navigation = useNavigation<UserNavigationProp<'UserScreen'>>()
-    const isDark = useSelector((state: ColorSchemeState) => state.dark);
+    const {theme} = useThemes()
 
   return (
     <View style={StyleSheet.absoluteFill}>
       <Text>Welcome to the User screen!</Text>
       <Button title="Go to User Detail screen" onPress={() => navigation.navigate('UserDetail', { userId: route.params?.userId})} />
-      <BottomNavBar display={isDark}/>
+      <BottomNavBar display theme={theme}/>
     </View>
   );
 }

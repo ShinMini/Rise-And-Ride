@@ -28,8 +28,15 @@ declare global {
       ProfileScreen: undefined;
     };
 
+    type AboutStackParamList = {
+      AboutScreen: undefined;
+    };
+
     type MenuStackParamList = {
-      MenuScreen: undefined;
+      NotificationScreen: undefined
+      UserScreen: {userId?: string }
+      SettingScreen: undefined;
+      AboutScreen: undefined;
     }
   }
 }

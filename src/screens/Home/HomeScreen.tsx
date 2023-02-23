@@ -6,17 +6,13 @@ import {BlueBackgroundMobyCard, GridMobyCard, RidingMobyCard, WhiteBackgroundMob
 
 // import skia module for svg loading
 import { useSVG } from "@shopify/react-native-skia";
-import {useSelector} from "react-redux";
-import {ColorSchemeState} from "stores";
-import {useNavigation} from "@react-navigation/native";
-import {HomeNavigationProp} from "routes/HomeStack";
-import BottomNavBar from "routes/components/BottomNavBar";
 import HeaderNavBar from "routes/components/HeaderNavBar";
 import { Container, Separator, styles } from "src/components/Home/home.style";
 import HomeCardView from "src/components/Home/HomeCardView";
 import {StackNavigationProp} from "@react-navigation/stack";
 import CardServiceContent from "src/components/Home/CardServiceContent";
 import CardUsageGraph from "src/components/Home/CardUsageGraph";
+import useThemes from "src/hooks/useTheme";
 
 /** ----------- Main Content ----------------- */
 type HomeScreenProps = {
@@ -29,13 +25,11 @@ const HomeScreen: FC<HomeScreenProps> = () => {
     const [activeCardIndex, setActiveCardIndex] = React.useState(0);
     const [displayHeader, setDisplayHeader] = React.useState(true);
     const [currentScrollOffsetY, setCurrentScrollOffsetY] = React.useState(0);
-
-    const navigation = useNavigation<HomeNavigationProp<'HomeScreen'>>();
-    const isDark = useSelector((state: ColorSchemeState) => state.dark)
+    const {isDark, theme, toggleButton} = useThemes();
 
     return (
             <Container>
-                <HeaderNavBar display={displayHeader} title="Modu Card"  animate />
+                <HeaderNavBar display={displayHeader} title="Modu Card"  animate theme={theme}/>
 
                 <ScrollView
                         style={[styles.scrollView]}

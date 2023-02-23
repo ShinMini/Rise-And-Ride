@@ -1,4 +1,4 @@
-// MenuScreen.tsx
+// SettingScreen.tsx
 import React, { FC, useState } from 'react';
 import {Switch} from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
@@ -11,7 +11,7 @@ import useThemes from "src/hooks/useTheme";
 import HeaderNavBar from "routes/components/HeaderNavBar";
 import Spacing from "styles/Spacing";
 
-type MenuScreenProps = StackScreenProps<RootStack.MenuStackParamList, 'MenuScreen'>;
+type AboutScreenProps = StackScreenProps<RootStack.MenuStackParamList, 'AboutScreen'>;
 
 const Container = styled.View`
     flex: 1;
@@ -19,7 +19,7 @@ const Container = styled.View`
 
     justify-items: center;
 `
-const MenuOptionBox = styled.TouchableOpacity`
+const AboutOptionBox = styled.TouchableOpacity`
     width: 80%;
     height: ${Spacing.box.sm}px;
 
@@ -30,22 +30,22 @@ const MenuOptionBox = styled.TouchableOpacity`
     justify-content: center;
 `;
 
-const MenuScreen: FC<MenuScreenProps> = ({ navigation }) => {
+const AboutScreen: FC<AboutScreenProps> = ({ navigation }) => {
     const {isDark, toggleButton, theme} = useThemes();
     const toggleColorScheme = () => { toggleButton(); return }
 
     return (
             <Container>
-                <HeaderNavBar title="Menu" canGoBack theme={theme}/>
-                <MenuOptionBox>
+                <HeaderNavBar title="About" canGoBack theme={theme}/>
+                <AboutOptionBox>
                     <SText> switch Theme </SText>
-                </MenuOptionBox>
+                </AboutOptionBox>
 
-                <SText size={Spacing.icon.md} >Welcome to the Menu Screen!</SText>
+                <SText size={Spacing.icon.md} >Welcome to the About Screen!</SText>
                 <Switch value={isDark} onValueChange={toggleColorScheme} style={{alignSelf: 'center'}}/>
                 <BottomNavBar display theme={theme} />
             </Container>
     );
 }
 
-export default MenuScreen;
+export default AboutScreen;

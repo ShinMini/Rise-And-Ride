@@ -8,7 +8,7 @@ import BottomNavBar from "routes/components/BottomNavBar";
 import HeaderNavBar from "routes/components/HeaderNavBar";
 import useThemes from "src/hooks/useTheme";
 
-type ProfileScreenProps = StackScreenProps<RootStack.ProfileStackParamList, 'ProfileScreen'>;
+type ProfileScreenProps = StackScreenProps<RootStack.RootStackParamList, 'Profile'>;
 
 const Container = styled.View`
     flex: 1;
@@ -24,7 +24,7 @@ const ProfileScreen: FC<ProfileScreenProps> = ({ navigation }) => {
 
     return (
             <Container>
-                <HeaderNavBar title="Setting" canGoBack theme={theme} />
+                <HeaderNavBar title="Setting" display canGoBack theme={theme} />
                 <SText size={16} >Welcome to the Profile Settings Screen!</SText>
                 <SText> switch Theme</SText>
                 <Switch value={isDark} onValueChange={toggleColorScheme} style={{alignSelf: 'center'}}/>

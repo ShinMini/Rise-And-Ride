@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import UserSettingsScreen from 'screens/User/UserSettingsScreen';
 import UserDetailScreen from 'screens/User/UserDetailScreen';
 import {NavigationProp, RouteProp} from "@react-navigation/native";
-import UserScreen from "screens/User/UserScreen";
+import UserScreen from "screens/Menu/UserScreen";
 
 const _UserStack= createStackNavigator<RootStack.UserStackParamList>();
 
@@ -12,7 +12,7 @@ export type UserRouteProp<T extends keyof RootStack.UserStackParamList> = RouteP
 
 export default function UserStack() {
   return (
-    <_UserStack.Navigator screenOptions={{headerShown: false}}>
+    <_UserStack.Navigator screenOptions={{headerShown: false}} initialRouteName="UserScreen">
       <_UserStack.Screen name="UserScreen" component={UserScreen} options={{ title: 'User', headerShown: false}} />
       <_UserStack.Screen name="UserDetail" component={UserDetailScreen} options={{ title: 'Detail' }} />
       <_UserStack.Screen name="UserSettings" component={UserSettingsScreen} />
