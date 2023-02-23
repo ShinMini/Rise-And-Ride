@@ -7,10 +7,9 @@ import {useNavigation} from "@react-navigation/native";
 import {UserNavigationProp} from "routes/UserStack";
 import useThemes from "src/hooks/useTheme";
 
-type UserScreenProps = StackScreenProps<RootStack.MenuStackParamList, 'UserScreen'>;
+type UserScreenProps = StackScreenProps<RootStack.UserStackParamList, 'UserScreen'>;
 
-const UserScreen : FC<UserScreenProps> = ({route}) => {
-    const navigation = useNavigation<UserNavigationProp<'UserScreen'>>()
+const UserScreen : FC<UserScreenProps> = ({navigation, route}) => {
     const {theme} = useThemes()
 
   return (

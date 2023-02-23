@@ -9,17 +9,14 @@ import { useSVG } from "@shopify/react-native-skia";
 import HeaderNavBar from "routes/components/HeaderNavBar";
 import { Container, Separator, styles } from "src/components/Home/home.style";
 import HomeCardView from "src/components/Home/HomeCardView";
-import {StackNavigationProp} from "@react-navigation/stack";
+import {StackScreenProps} from "@react-navigation/stack";
 import CardServiceContent from "src/components/Home/CardServiceContent";
 import CardUsageGraph from "src/components/Home/CardUsageGraph";
 import useThemes from "src/hooks/useTheme";
 
 /** ----------- Main Content ----------------- */
-type HomeScreenProps = {
-    navigation: StackNavigationProp<RootStack.RootStackParamList, 'Home'>;
-};
 
-const HomeScreen: FC<HomeScreenProps> = () => {
+const HomeScreen: FC = () => {
     // modu card
     const cards = [ useSVG(BlueBackgroundMobyCard), useSVG(WhiteBackgroundMobyCard), useSVG(GridMobyCard), useSVG(RidingMobyCard)]
     const [activeCardIndex, setActiveCardIndex] = React.useState(0);

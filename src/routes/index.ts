@@ -1,6 +1,5 @@
 import HomeStack from './HomeStack';
 import UserStack from './UserStack';
-import ProfileStack from './ProfileStack';
-import MenuStack from "routes/MenuStack";
+import MenuStack from "./MenuStack";
 
-export { HomeStack, UserStack, ProfileStack, MenuStack };
+export { HomeStack, UserStack, MenuStack };

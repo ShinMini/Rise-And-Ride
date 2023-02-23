@@ -8,33 +8,24 @@ declare global {
 
     type RootStackParamList = {
       Home: undefined;
-      User: {userId?: string};
-      Profile: undefined;
-      Menu: undefined;
+      UserStack: {userId?: string};
+      MenuStack: undefined;
     };
-
-    type HomeStackParamList = {
-      HomeScreen: undefined;
-      HomeDetail: { cardId?: number };
-    };
+    //
+    // type HomeStackParamList = {
+    //   HomeScreen: undefined;
+    //   HomeDetail: { cardId?: number };
+    // };
 
     type UserStackParamList = {
-      UserScreen: {userId?: string }
+      UserScreen: {userId?: string}
       UserDetail: { userId?: string };
       UserSettings: { showNotifications?: boolean };
     };
 
-    type ProfileStackParamList = {
-      ProfileScreen: undefined;
-    };
-
-    type AboutStackParamList = {
-      AboutScreen: undefined;
-    };
-
     type MenuStackParamList = {
       NotificationScreen: undefined
-      UserScreen: {userId?: string }
+      UserScreen: {userId?: string}
       SettingScreen: undefined;
       AboutScreen: undefined;
     }

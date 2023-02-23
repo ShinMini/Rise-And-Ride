@@ -104,16 +104,16 @@ const HeaderNavBar: FC<HeaderNavBarProps> = ({display = true, title = '', canGoB
     }
 
     type onPressExpandedIconParams = {
-        goto: keyof Omit<RootStack.RootStackParamList, 'User'>
+        goto: keyof Omit<RootStack.MenuStackParamList, 'UserScreen'>
     } | {
-        goto: 'User'
+        goto: 'UserScreen'
         params: {userId?: string}
     }
     const onPressExpandedIcon = (props: onPressExpandedIconParams) => {
-        if(props.goto === 'User')
-            navigation.navigate(props.goto, props.params)
+        if(props.goto === 'UserScreen')
+            navigation.navigate<keyof Omit<RootStack.MenuStackParamList, 'UserScreen'>>('MenuStack', {screen: props.goto, params: {userId: props.params.userId}})
 
-        navigation.navigate(props.goto as keyof Omit<RootStack.RootStackParamList, 'User'>)
+        navigation.navigate('MenuStack', {screen: props.goto as keyof Omit<RootStack.MenuStackParamList, 'UserScreen'>})
         onPressMenuIcon()
     }
 
@@ -144,7 +144,7 @@ const HeaderNavBar: FC<HeaderNavBarProps> = ({display = true, title = '', canGoB
                         )
                         :
                         (
-                            <HeaderNavButton onPress={() => navigation.navigate('Menu')} bottom={4}>
+                            <HeaderNavButton onPress={() => navigation.navigate('MenuStack', {screen: 'NotificationScreen'})} bottom={4}>
                                 <Ionicons name="notifications-outline" size={iconSize} color={theme.colors.POINT} />
                             </HeaderNavButton>
                         )
@@ -159,21 +159,21 @@ const HeaderNavBar: FC<HeaderNavBarProps> = ({display = true, title = '', canGoB
 
                 {/* expanded header components */}
                 <HeaderExpandedComponent style={animHeaderExpandedStyle}>
-                    <HeaderExpandedButton onPress={() => onPressExpandedIcon({goto: 'User', params: {userId: 'Hyeon Min Shin'}})} borderTop >
+                    <HeaderExpandedButton onPress={() => onPressExpandedIcon({goto: 'UserScreen', params: {userId: 'Hyeon Min Shin'}})} borderTop >
                         <HeaderExpandedTitle >
                             My Page
                         </HeaderExpandedTitle>
                         <HeaderExpandedIcon name="person-outline" color={expandedColor} />
                     </HeaderExpandedButton>
 
-                    <HeaderExpandedButton onPress={() => onPressExpandedIcon({goto: 'Menu'})}>
+                    <HeaderExpandedButton onPress={() => onPressExpandedIcon({goto: 'SettingScreen'})}>
                         <HeaderExpandedTitle >
                             Settings
                         </HeaderExpandedTitle>
                         <HeaderExpandedIcon name="settings-outline" color={expandedColor} />
                     </HeaderExpandedButton>
 
-                    <HeaderExpandedButton onPress={() => onPressExpandedIcon({goto: 'Home'})}>
+                    <HeaderExpandedButton onPress={() => onPressExpandedIcon({goto: 'AboutScreen'})}>
                         <HeaderExpandedTitle >
                             About
                         </HeaderExpandedTitle>
