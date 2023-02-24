@@ -8,7 +8,7 @@ import {useNavigation} from "@react-navigation/native";
 import getAnimationProps from "src/utils/getAnimationProps";
 import Spacing from "styles/Spacing";
 import {useAnimatedStyle, useSharedValue, withTiming} from "react-native-reanimated";
-import {MenuStackParamList} from "../../../types";
+import {MenuStackParamList} from "navType";
 
 const sp = Spacing.navbar.header
 

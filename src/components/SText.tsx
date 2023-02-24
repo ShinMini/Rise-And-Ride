@@ -19,7 +19,7 @@ const SText= styled.Text<_TextProps>`
 `
 
 const _Text: React.FC<_TextProps> = (props) => {
-  const {color, size, position, textStyle, text, textChildren} = props;
+  const {color, size, position, textStyle, text} = props;
 
   return (
     <_Text
@@ -28,8 +28,7 @@ const _Text: React.FC<_TextProps> = (props) => {
       position={position}
       style={textStyle}
     >
-      {textChildren && textChildren}
-      {text && text}
+      {text}
     </_Text>
   )
 }

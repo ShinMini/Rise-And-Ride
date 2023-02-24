@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import React from "react";
 import {StyleProp, TextStyle, TouchableOpacityProps, ViewStyle} from "react-native";
-import _Text, {_TextProps} from "src/components/_Text";
+import _Text, {_TextProps} from "src/components/SText";
 
 const SButton= styled.TouchableOpacity`
   background-color: ${({theme}) => theme.colors.BUTTON};
@@ -24,19 +24,16 @@ const ButtonText = styled(_Text)<{color?: string; size?: number; position?: 'lef
 
 
 export  type SButtonProps = {
-  btnChildren?: React.ReactNode;
   onPress: () => void;
   buttonStyle?: StyleProp<ViewStyle>
 
-  isTitle?: boolean
   title?: _TextProps;
 } & TouchableOpacityProps
 
-const _Button: React.FC<SButtonProps> = ({btnChildren, onPress, title, buttonStyle, isTitle = false}) => {
+const _Button: React.FC<SButtonProps> = ({onPress, title, buttonStyle}) => {
   return (
     <SButton onPress={onPress} style={buttonStyle} >
-      {btnChildren && btnChildren}
-      {isTitle && <_Text {...title} /> }
+      {title && <_Text {...title} />}
     </SButton>
   )
 }

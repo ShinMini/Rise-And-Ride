@@ -12,7 +12,7 @@
     "test": "jest",
     "tsc": "tsc",
     "lint": "tslint '**/*.ts,.tsx,.js,.jsx'",
-    "clearinstall": "rm -rf node_modules && yarn"
+    "clearinstall": "rm -rf node_modules && yarn && yarn build && yarn start"
   },
   "dependencies": {
     "@babel/plugin-transform-typescript": "^7.20.13",
