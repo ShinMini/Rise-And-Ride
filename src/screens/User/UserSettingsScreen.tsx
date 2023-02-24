@@ -1,17 +1,17 @@
 // UserSettingsScreen.tsx
 import React from 'react';
-import { Text, View } from 'react-native';
-import { StackScreenProps } from '@react-navigation/stack';
+import {Text, View} from 'react-native';
+import {UserStackScreenProps} from "routes/UserStack";
 
-type UserSettingsProps = StackScreenProps<RootStack.UserStackParamList, 'UserSettings'>;
-
-export default function UserSettingsScreen({ route }: UserSettingsProps) {
-  const { showNotifications } = route.params;
+const UserSettingsScreen: React.FC<UserStackScreenProps<'UserSettings'>> = ({route}) => {
+  const {showNotifications} = route.params;
 
   return (
-    <View>
-      <Text>Welcome to the User Settings Screen!</Text>
-      <Text>Show Notifications: {showNotifications ? 'Yes' : 'No'}</Text>
-    </View>
+          <View>
+            <Text>Welcome to the User Settings Screen!</Text>
+            <Text>Show Notifications: {showNotifications ? 'Yes' : 'No'}</Text>
+          </View>
   );
 }
+
+export default UserSettingsScreen

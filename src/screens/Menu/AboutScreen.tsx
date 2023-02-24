@@ -10,8 +10,7 @@ import BottomNavBar from "routes/components/BottomNavBar";
 import useThemes from "src/hooks/useTheme";
 import HeaderNavBar from "routes/components/HeaderNavBar";
 import Spacing from "styles/Spacing";
-
-type AboutScreenProps = StackScreenProps<RootStack.MenuStackParamList, 'AboutScreen'>;
+import {MenuStackScreenProps} from "routes/MenuStack";
 
 const Container = styled.View`
     flex: 1;
@@ -30,7 +29,7 @@ const AboutOptionBox = styled.TouchableOpacity`
     justify-content: center;
 `;
 
-const AboutScreen: FC<AboutScreenProps> = ({ navigation }) => {
+const AboutScreen: FC<MenuStackScreenProps<'AboutScreen'>> = ({ navigation }) => {
     const {isDark, toggleButton, theme} = useThemes();
     const toggleColorScheme = () => { toggleButton(); return }
 

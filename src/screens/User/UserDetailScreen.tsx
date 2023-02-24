@@ -1,10 +1,8 @@
 import React, { FC } from 'react';
 import { View, Text } from 'react-native';
-import { StackScreenProps } from '@react-navigation/stack';
+import {UserStackScreenProps} from "routes/UserStack";
 
-type UserDetailProps = StackScreenProps<RootStack.UserStackParamList, 'UserDetail'>;
-
-const UserDetailScreen: FC<UserDetailProps> = ({ route }) => {
+const UserDetailScreen: FC<UserStackScreenProps<'UserDetail'>> = ({ route }) => {
   const userId = route.params?.userId;
 
   return (

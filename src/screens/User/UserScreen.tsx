@@ -1,15 +1,13 @@
 // UserScreen.tsx
 import React, { FC } from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
-import {StackScreenProps } from '@react-navigation/stack';
 import BottomNavBar from "routes/components/BottomNavBar";
-import {useNavigation} from "@react-navigation/native";
-import {UserNavigationProp} from "routes/UserStack";
 import useThemes from "src/hooks/useTheme";
+import {UserStackScreenProps} from "routes/UserStack";
 
-type UserScreenProps = StackScreenProps<RootStack.UserStackParamList, 'UserScreen'>;
 
-const UserScreen : FC<UserScreenProps> = ({navigation, route}) => {
+
+const UserScreen : FC<UserStackScreenProps<'UserScreen'>> = ({navigation, route}) => {
     const {theme} = useThemes()
 
   return (

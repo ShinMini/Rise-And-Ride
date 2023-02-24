@@ -14,6 +14,7 @@
                 "stores": "./src/stores",
                 "routes": "./src/routes",
                 "types": "./types",
+                "navType": "./types.d.ts",
 
                 "src": "./src",
                 "screens": "./src/screens",

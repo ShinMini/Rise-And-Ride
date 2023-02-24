@@ -5,7 +5,7 @@ import {MenuStack, UserStack} from "routes";
 import HomeScreen from "screens/Home/HomeScreen";
 
 
-const RootStack= createStackNavigator<RootStack.RootParamList>();
+const RootStack= createStackNavigator();
 
 function AppRouter() {
   return (

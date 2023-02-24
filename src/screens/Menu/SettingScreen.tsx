@@ -10,8 +10,9 @@ import BottomNavBar from "routes/components/BottomNavBar";
 import useThemes from "src/hooks/useTheme";
 import HeaderNavBar from "routes/components/HeaderNavBar";
 import Spacing from "styles/Spacing";
+import {MenuStackParamList} from "../../../types";
 
-type SettingScreenProps = StackScreenProps<RootStack.MenuStackParamList, 'SettingScreen'>;
+type SettingScreenProps = StackScreenProps<MenuStackParamList, 'SettingScreen'>;
 
 const Container = styled.View`
     flex: 1;
