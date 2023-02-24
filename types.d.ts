@@ -29,15 +29,13 @@ export type RootStackParamList = {
 };
 
 export type UserStackParamList = {
-	UserScreen: {userId?: string}
+	User: {userId?: string}
 	UserDetail: { userId?: string };
 	UserSettings: { showNotifications?: boolean };
 	Notification: undefined
 };
 
 export type MenuStackParamList = {
-	NotificationScreen: undefined
-	UserScreen: {userId?: string}
 	SettingScreen: undefined;
 	AboutScreen: undefined;
 }

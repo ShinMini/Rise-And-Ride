@@ -15,8 +15,8 @@ export type UserStackScreenProps<T extends keyof UserStackParamList> = StackScre
 
 export default function UserStack() {
   return (
-    <_UserStack.Navigator screenOptions={{headerShown: false}} initialRouteName="UserScreen">
-      <_UserStack.Screen name="UserScreen" component={UserScreen} options={{ title: 'User', headerShown: false}} />
+    <_UserStack.Navigator screenOptions={{headerShown: false}} initialRouteName="User">
+      <_UserStack.Screen name="User" component={UserScreen} options={{ title: 'User', headerShown: false}} />
       <_UserStack.Screen name="UserDetail" component={UserDetailScreen} options={{ title: 'Detail' }} />
       <_UserStack.Screen name="UserSettings" component={UserSettingsScreen} />
 			<_UserStack.Screen name="Notification" component={NotificationScreen} options={{ title: 'Notification' }} />

@@ -35,8 +35,8 @@ const HeaderDefaultComponent = styled.View`
   justify-content: space-between;
 `
 
-const HeaderText = styled(ExtraBold)`
-  color: ${({theme}) => theme.colors.PRIMARY};
+const HeaderText = styled(ExtraBold)<{color?: string}>`
+  color: ${({theme, color}) => color ? color : theme.colors.PRIMARY};
   font-size: ${Spacing.font.lg}px;
 `
 
@@ -85,8 +85,13 @@ type HeaderNavBarProps = {
   canGoBack?: boolean
   animate?: boolean
   theme: DefaultTheme
+  color?: string
 }
 
+type onPressExpandedIconParams = {
+  goto: keyof MenuStackParamList | 'User'
+  params?: { userId?: string }
+}
 const HeaderNavBar: FC<HeaderNavBarProps> = ({
                                                display = true,
                                                title = '',
@@ -110,19 +115,18 @@ const HeaderNavBar: FC<HeaderNavBarProps> = ({
     setExpanded(!expanded)
   }
 
-  type onPressExpandedIconParams = {
-    goto: keyof MenuStackParamList | 'UserScreen'
-    params?: { userId?: string }
-  }
   const onPressExpandedIcon = (props: onPressExpandedIconParams) => {
-    if (props.goto === 'UserScreen' && props.params)
+    if (props.goto === 'User' && props.params){
       navigation.navigate('UserStack', {
                 screen: props.goto,
                 params: props.params
               }
       )
+    }
+    else {
+      navigation.navigate('MenuStack', {screen: props.goto})
+    }
 
-    navigation.navigate('MenuStack', {screen: props.goto})
     onPressMenuIcon()
   }
 
@@ -156,7 +160,7 @@ const HeaderNavBar: FC<HeaderNavBarProps> = ({
                       :
                       (
                               <HeaderNavButton
-                                      onPress={() => navigation.navigate('MenuStack', {screen: 'NotificationScreen'})}
+                                      onPress={() => navigation.navigate('UserStack', {screen: 'Notification'})}
                                       bottom={4}>
                                 <Ionicons name="notifications-outline" size={iconSize}
                                           color={theme.colors.POINT}/>
@@ -172,9 +176,10 @@ const HeaderNavBar: FC<HeaderNavBarProps> = ({
             </HeaderDefaultComponent>
 
             {/* expanded header components */}
+            {expanded &&(
             <HeaderExpandedComponent style={animHeaderExpandedStyle}>
               <HeaderExpandedButton onPress={() => onPressExpandedIcon({
-                goto: 'UserScreen',
+                goto: 'User',
                 params: {userId: 'Hyeon Min Shin'}
               })} borderTop>
                 <HeaderExpandedTitle>
@@ -201,6 +206,7 @@ const HeaderNavBar: FC<HeaderNavBarProps> = ({
               </HeaderExpandedButton>
 
             </HeaderExpandedComponent>
+              )}
 
 
           </Header>

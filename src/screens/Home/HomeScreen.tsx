@@ -9,7 +9,6 @@ import { useSVG } from "@shopify/react-native-skia";
 import HeaderNavBar from "routes/components/HeaderNavBar";
 import { Container, Separator, styles } from "src/components/Home/home.style";
 import HomeCardView from "src/components/Home/HomeCardView";
-import {StackScreenProps} from "@react-navigation/stack";
 import CardServiceContent from "src/components/Home/CardServiceContent";
 import CardUsageGraph from "src/components/Home/CardUsageGraph";
 import useThemes from "src/hooks/useTheme";
@@ -22,7 +21,7 @@ const HomeScreen: FC = () => {
     const [activeCardIndex, setActiveCardIndex] = React.useState(0);
     const [displayHeader, setDisplayHeader] = React.useState(true);
     const [currentScrollOffsetY, setCurrentScrollOffsetY] = React.useState(0);
-    const {isDark, theme, toggleButton} = useThemes();
+    const {isDark, theme} = useThemes();
 
     return (
             <Container>

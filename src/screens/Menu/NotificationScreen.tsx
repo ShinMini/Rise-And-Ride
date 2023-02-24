@@ -6,6 +6,7 @@ import useThemes from "src/hooks/useTheme";
 import HeaderNavBar from "routes/components/HeaderNavBar";
 import Spacing from "styles/Spacing";
 import {UserStackScreenProps} from "routes/UserStack";
+import Margin from "src/components/Margin";
 
 const Container = styled.View`
     flex: 1;
@@ -18,6 +19,8 @@ const NotificationOptionBox = styled.TouchableOpacity`
     margin-left: 10%;
     background-color: ${({theme}) => theme.colors.PRIMARY};
     justify-content: center;
+
+  border-radius: 10px;
 `;
 
 const NotificationScreen: FC<UserStackScreenProps<'Notification'>> = ({ navigation }) => {
@@ -25,7 +28,9 @@ const NotificationScreen: FC<UserStackScreenProps<'Notification'>> = ({ navigati
 
     return (
             <Container>
-                <HeaderNavBar title="Notification" canGoBack theme={theme}/>
+                <HeaderNavBar display canGoBack theme={theme} title="Notification" />
+                <Margin nav mb={10}/>
+
                 <NotificationOptionBox>
 										<SText size={Spacing.font.md} >Welcome to the Notification Screen!</SText>
                 </NotificationOptionBox>
