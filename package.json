@@ -11,7 +11,8 @@
     "watch": "babel --watch src ---out-dir lib --extensions '.ts,.tsx'",
     "test": "jest",
     "tsc": "tsc",
-    "lint": "tslint '**/*.ts,.tsx,.js,.jsx'"
+    "lint": "tslint '**/*.ts,.tsx,.js,.jsx'",
+    "clearinstall": "rm -rf node_modules && yarn"
   },
   "dependencies": {
     "@babel/plugin-transform-typescript": "^7.20.13",
