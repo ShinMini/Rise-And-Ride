@@ -1,4 +1,4 @@
-import SButton from 'src/components/_Button'
-import SText   from 'src/components/_Text'
+import _Button from 'src/components/_Button'
+import _Text   from 'src/components/_Text'
 
-export {SButton, SText}
+export {_Button, _Text}

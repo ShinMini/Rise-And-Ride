@@ -5,7 +5,7 @@ import BottomNavBar from "routes/components/BottomNavBar";
 import useThemes from "src/hooks/useTheme";
 import {UserStackScreenProps} from "routes/UserStack";
 import HeaderNavBar from "routes/components/HeaderNavBar";
-import {SText} from "components";
+import {_Text} from "components";
 import Spacing from "styles/Spacing";
 import styled from "styled-components/native";
 import Margin from "src/components/Margin";
@@ -38,10 +38,10 @@ const UserScreen : FC<UserStackScreenProps<'User'>> = ({navigation, route}) => {
             <Margin nav mb={10}/>
 
             <NotificationOptionBox>
-              <SText size={Spacing.font.md} >Welcome to My Page!</SText>
+              <_Text size={Spacing.font.md} >Welcome to My Page!</_Text>
             </NotificationOptionBox>
 
-            <SText size={Spacing.icon.md} >Welcome to the Notification Screen!</SText>
+            <_Text size={Spacing.icon.md} >Welcome to the Notification Screen!</_Text>
             <BottomNavBar display theme={theme} />
           </Container>
   );

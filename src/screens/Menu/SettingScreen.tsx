@@ -2,7 +2,7 @@
 import React, { FC} from 'react';
 import {Switch} from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
-import {SText} from "components";
+import {_Text} from "components";
 import styled from "styled-components/native";
 import BottomNavBar from "routes/components/BottomNavBar";
 import useThemes from "src/hooks/useTheme";
@@ -38,10 +38,10 @@ const SettingScreen: FC<SettingScreenProps> = ({ navigation }) => {
             <HeaderNavBar display canGoBack theme={theme} title="Setting" />
             <Margin nav mb={10} />
             <SettingOptionBox onPress={toggleColorScheme}>
-              <SText> switch Theme </SText>
+              <_Text> switch Theme </_Text>
             </SettingOptionBox>
 
-            <SText size={Spacing.icon.md} >Welcome to the Setting Screen!</SText>
+            <_Text size={Spacing.icon.md} >Welcome to the Setting Screen!</_Text>
             <Switch value={isDark} onValueChange={toggleColorScheme} style={{alignSelf: 'center'}}/>
             <BottomNavBar display theme={theme} />
           </Container>

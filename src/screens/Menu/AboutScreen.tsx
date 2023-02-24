@@ -4,7 +4,7 @@ import {Switch} from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import {useDispatch, useSelector} from "react-redux";
 import {ColorSchemeState, toggleTheme} from "stores";
-import {SText} from "components";
+import {_Text} from "components";
 import styled from "styled-components/native";
 import BottomNavBar from "routes/components/BottomNavBar";
 import useThemes from "src/hooks/useTheme";
@@ -37,10 +37,10 @@ const AboutScreen: FC<MenuStackScreenProps<'AboutScreen'>> = ({ navigation }) =>
             <Container>
                 <HeaderNavBar title="About" canGoBack theme={theme}/>
                 <AboutOptionBox>
-                    <SText> switch Theme </SText>
+                    <_Text> switch Theme </_Text>
                 </AboutOptionBox>
 
-                <SText size={Spacing.icon.md} >Welcome to the About Screen!</SText>
+                <_Text size={Spacing.icon.md} >Welcome to the About Screen!</_Text>
                 <Switch value={isDark} onValueChange={toggleColorScheme} style={{alignSelf: 'center'}}/>
                 <BottomNavBar display theme={theme} />
             </Container>
