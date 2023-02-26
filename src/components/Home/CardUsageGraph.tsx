@@ -18,20 +18,29 @@ import {width} from "src/components/Home/home.style";
 import styled from "styled-components/native";
 import {DigitExtraBold} from "styles/Typo";
 
+const GRAPH_WIDTH = width * 0.85;
+const GRAPH_HEIGHT = 300;
 
+const GraphCanvas = styled(Canvas)`
+    width: ${GRAPH_WIDTH}px;
+    height: ${GRAPH_HEIGHT}px;
+    background-color: ${({theme}) => theme.colors.SURFACE};
+    align-self: center;
+    margin-top: 20px;
+    border-radius: 15px;
+
+`
 const RowView = styled.View`
     margin-top: 30px;
     flex-direction: row;
     justify-content: space-between;
 `
-
 const GraphHeadText = styled(DigitExtraBold)`
     font-size: 22px;
     color: ${({theme}) => theme.colors.POINT};
 `
-
 const DisplayGraphText = styled(DigitExtraBold)`
-    font-size: 16px;
+    font-size: 18px;
     color: ${({theme}) => theme.colors.MAIN};
 `
 
@@ -53,8 +62,6 @@ const CardUsageGraph : FC = () => {
         next: 1,
     });
 
-    const GRAPH_WIDTH = width * 0.85;
-    const GRAPH_HEIGHT = 300;
 
     const makeGraph = (data: DataPoint[]): GraphData => {
         const max = Math.max(...data.map(val => val.value));
@@ -112,15 +119,11 @@ const CardUsageGraph : FC = () => {
                     <GraphHeadText>Card Usages</GraphHeadText>
                     <Pressable
                             onPress={pressGraphText}>
-                    <DisplayGraphText>{displayGraph[activeGraph]}</DisplayGraphText>
+                        <DisplayGraphText>{displayGraph[activeGraph]}</DisplayGraphText>
                     </Pressable>
                 </RowView>
-                <Canvas
-                        style={{
-                            width: GRAPH_WIDTH,
-                            height: GRAPH_HEIGHT,
-                            alignSelf: 'center',
-                        }}>
+                <GraphCanvas>
+
                     <Line
                             p1={vec(10, 30)}
                             p2={vec(400, 30)}
@@ -143,7 +146,7 @@ const CardUsageGraph : FC = () => {
                             strokeWidth={1}
                     />
                     <Path style="stroke" path={path} strokeWidth={4} color="#6231ff" />
-                </Canvas>
+                </GraphCanvas>
             </View>
     );
 };

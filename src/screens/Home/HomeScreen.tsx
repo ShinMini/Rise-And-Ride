@@ -6,36 +6,26 @@ import {BlueBackgroundMobyCard, GridMobyCard, RidingMobyCard, WhiteBackgroundMob
 
 // import skia module for svg loading
 import { useSVG } from "@shopify/react-native-skia";
-import {useSelector} from "react-redux";
-import {ColorSchemeState} from "stores";
-import {useNavigation} from "@react-navigation/native";
-import {HomeNavigationProp} from "routes/HomeStack";
-import BottomNavbar from "routes/components/BottomNavbar";
 import HeaderNavBar from "routes/components/HeaderNavBar";
 import { Container, Separator, styles } from "src/components/Home/home.style";
 import HomeCardView from "src/components/Home/HomeCardView";
-import {StackNavigationProp} from "@react-navigation/stack";
 import CardServiceContent from "src/components/Home/CardServiceContent";
 import CardUsageGraph from "src/components/Home/CardUsageGraph";
+import useThemes from "src/hooks/useTheme";
 
 /** ----------- Main Content ----------------- */
-type HomeScreenProps = {
-    navigation: StackNavigationProp<RootStack.RootStackParamList, 'Home'>;
-};
 
-const HomeScreen: FC<HomeScreenProps> = () => {
+const HomeScreen: FC = () => {
     // modu card
     const cards = [ useSVG(BlueBackgroundMobyCard), useSVG(WhiteBackgroundMobyCard), useSVG(GridMobyCard), useSVG(RidingMobyCard)]
     const [activeCardIndex, setActiveCardIndex] = React.useState(0);
     const [displayHeader, setDisplayHeader] = React.useState(true);
     const [currentScrollOffsetY, setCurrentScrollOffsetY] = React.useState(0);
-
-    const navigation = useNavigation<HomeNavigationProp<'HomeScreen'>>();
-    const isDark = useSelector((state: ColorSchemeState) => state.dark)
+    const {isDark, theme} = useThemes();
 
     return (
             <Container>
-                <HeaderNavBar display={displayHeader} headerTitle="Modu Card" />
+                <HeaderNavBar display={displayHeader} title="Modu Card"  animate theme={theme}/>
 
                 <ScrollView
                         style={[styles.scrollView]}
@@ -56,7 +46,7 @@ const HomeScreen: FC<HomeScreenProps> = () => {
 
                 </ScrollView>
 
-                <BottomNavbar display={displayHeader}/>
+                {/*<BottomNavBar display={displayHeader} animate/>*/}
             </Container>
     )
 }

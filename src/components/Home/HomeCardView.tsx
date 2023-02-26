@@ -1,5 +1,5 @@
 import {Gesture, GestureDetector} from "react-native-gesture-handler";
-import Animated, {useAnimatedStyle, useSharedValue, withSpring, withTiming} from "react-native-reanimated";
+import Animated, {interpolate, useAnimatedStyle, useSharedValue, withSpring, withTiming} from "react-native-reanimated";
 import {Canvas, ImageSVG, SkSVG} from "@shopify/react-native-skia";
 import {PaddingBox, styles} from "src/components/Home/home.style";
 import React from "react";
@@ -58,19 +58,22 @@ const HomeCardView: React.FC<HomeCardViewProps> = ({cards, activeCardIndex, isDa
     gesture.onBegin(() => {
         context.value = {x: translateX.value, y: translateY.value}
     }).onUpdate((event) => { // gesture 이벤트가 발생할 때마다 실행
-        translateX.value = event.translationX + context.value.x
-        translateY.value = event.translationY + context.value.y
+        translateX.value = withSpring(event.translationX + context.value.x)
+        translateY.value = withSpring(interpolate(event.translationY + context.value.y, [-width / 2, 0, width / 2], [-height / 4, 0, height / 4]))
     }).onEnd((event) => { // gesture 이벤트가 끝날 때 실행
         if(Math.abs(event.translationX) > width / 5 || Math.abs(event.translationY) > height / 5) {
             let direction = event.translationX > 0 ? 1 : -1
 
             // move card away and change card
-            translateX.value = withTiming(event.translationX * 3)
-            translateY.value = withTiming(event.translationY * 3)
+            translateX.value = withSpring(event.translationX * 3)
+            translateY.value = withSpring(event.translationY * 3)
 
             // change card()
             setTimeout(() => {
                 changeCard(direction)
+                translateX.value = - event.translationX * 3
+                translateY.value = - event.translationY * 3
+
                 translateX.value = withTiming(0)
                 translateY.value = withTiming(0)
             }, 300);
@@ -86,8 +89,8 @@ const HomeCardView: React.FC<HomeCardViewProps> = ({cards, activeCardIndex, isDa
         width,
         height: CARD_HEIGHT + 60,
         transform: [
-            {translateX: withSpring(translateX.value)},
-            {translateY: withSpring(translateY.value)},
+            {translateX: translateX.value},
+            {translateY: translateY.value},
         ]}))
 
     return (
@@ -98,13 +101,13 @@ const HomeCardView: React.FC<HomeCardViewProps> = ({cards, activeCardIndex, isDa
                         exit={{translateY: -100}}
                         transition={{type: 'timing', duration: 500}}
                 >
-                    {/*<GestureDetector gesture={gesture} >*/}
+                    <GestureDetector gesture={gesture} >
                     <Animated.View style={cardAnim}>
                         <Canvas style={[styles.canvas, styles.shadow, {shadowColor: isDark ? 'white' : 'black'}]}>
                             <ImageSVG svg={cards[activeCardIndex]!} x={0} y={0} width={CARD_WIDTH} height={CARD_HEIGHT} />
                         </Canvas>
                     </Animated.View>
-                    {/*</GestureDetector>*/}
+                    </GestureDetector>
                 </CardAnimationView>
 
                 <PaddingBox />
