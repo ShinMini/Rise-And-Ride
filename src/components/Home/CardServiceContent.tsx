@@ -1,10 +1,9 @@
-import {CARD_WIDTH, styles, width} from "src/components/Home/home.style";
+import {styles, width} from "src/components/Home/home.style";
 import React from "react";
 
 // new version -------------
 import { FontAwesome } from '@expo/vector-icons';
-import {StackNavigationProp} from "@react-navigation/stack";
-import {DigitBold, DigitExtraBold, DigitThin, Thin} from "styles/Typo";
+import {DigitBold, DigitExtraBold} from "styles/Typo";
 import styled from "styled-components/native";
 
 const PointIconContainer = styled.View`
@@ -33,8 +32,6 @@ const CardPointDigitSmallText = styled(DigitBold)`
     margin-top: 10px;
     margin-right: 10px;
 `
-
-
 
 const ServiceContainer = styled.View`
     width: ${width * 0.85}px;
