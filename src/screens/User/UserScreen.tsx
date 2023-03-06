@@ -1,6 +1,5 @@
 // UserScreen.tsx
 import React, { FC } from 'react';
-import {View, Text, Button, StyleSheet} from 'react-native';
 import BottomNavBar from "routes/components/BottomNavBar";
 import useThemes from "src/hooks/useTheme";
 import {UserStackScreenProps} from "routes/UserStack";

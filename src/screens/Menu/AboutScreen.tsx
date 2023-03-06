@@ -1,9 +1,6 @@
 // SettingScreen.tsx
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import {Switch} from 'react-native';
-import { StackScreenProps } from '@react-navigation/stack';
-import {useDispatch, useSelector} from "react-redux";
-import {ColorSchemeState, toggleTheme} from "stores";
 import {_Text} from "components";
 import styled from "styled-components/native";
 import BottomNavBar from "routes/components/BottomNavBar";
