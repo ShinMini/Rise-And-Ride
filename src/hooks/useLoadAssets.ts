@@ -1,4 +1,6 @@
-import {DefaultFonts} from "styles/Theme";
+import type {DefaultFonts} from "styles/Theme";
+
+type FontTypes = Record<keyof typeof DefaultFonts, NodeRequire>
 
 export const customFonts= {
   /** custom fonts */
@@ -27,4 +29,3 @@ export const customFonts= {
   DigitExtraBold: require('assets/fonts/Digit/ExtraBold/Bungee-Regular.ttf'),
 } satisfies FontTypes;
 
-type FontTypes = Record<keyof typeof DefaultFonts, NodeRequire>
