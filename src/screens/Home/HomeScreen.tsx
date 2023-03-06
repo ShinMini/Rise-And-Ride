@@ -12,6 +12,7 @@ import HomeCardView from "src/components/Home/HomeCardView";
 import CardServiceContent from "src/components/Home/CardServiceContent";
 import CardUsageGraph from "src/components/Home/CardUsageGraph";
 import useThemes from "src/hooks/useTheme";
+import BottomNavBar from 'src/routes/components/BottomNavBar';
 
 /** ----------- Main Content ----------------- */
 
@@ -26,7 +27,6 @@ const HomeScreen: FC = () => {
     return (
             <Container>
                 <HeaderNavBar display={displayHeader} title="Modu Card"  animate theme={theme}/>
-
                 <ScrollView
                         style={[styles.scrollView]}
                         scrollEventThrottle={8}
@@ -34,19 +34,13 @@ const HomeScreen: FC = () => {
                         onMomentumScrollBegin={({nativeEvent}) => { setCurrentScrollOffsetY(nativeEvent.contentOffset.y) }}
                         onScroll={({nativeEvent}) => { (currentScrollOffsetY > nativeEvent.contentOffset.y)  ? setDisplayHeader(true) : setDisplayHeader(false) }}
                 >
-
                     <HomeCardView key="HomeCardView_Home" cards={cards} activeCardIndex={activeCardIndex} isDark={isDark} setActiveCardIndex={setActiveCardIndex} />
-
                     <Separator />
-
                     <CardServiceContent />
-
                     <CardUsageGraph />
-
-
                 </ScrollView>
 
-                {/*<BottomNavBar display={displayHeader} animate/>*/}
+                <BottomNavBar display={displayHeader} animate theme={theme}/>
             </Container>
     )
 }

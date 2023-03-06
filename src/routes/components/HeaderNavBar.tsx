@@ -48,7 +48,7 @@ const HeaderNavButton = styled.TouchableOpacity<{ bottom?: number }>`
 const HeaderExpandedComponent = styled(MotiView)`
   margin-top: 10px;
   justify-items: flex-end;
-  opacity: 0
+  opacity: 0;
 `
 const HeaderExpandedButton = styled.TouchableOpacity<{ borderTop?: boolean }>`
   padding: 10px;

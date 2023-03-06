@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 import {animatedData, DataPoint, originalData} from '../../temp/Data';
 import {curveBasis, line, scaleLinear, scaleTime} from 'd3';
-import {Easing, View, Pressable, Text, StyleSheet} from 'react-native';
-
+import {Easing, View, Pressable, StyleSheet} from 'react-native';
 import {
     Canvas,
     Line,

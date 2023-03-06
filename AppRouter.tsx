@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import {MenuStack, UserStack} from "routes";
+import {MenuStack, UserStack} from "routes/index";
 import HomeScreen from "screens/Home/HomeScreen";
 
 
