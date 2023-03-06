@@ -1,5 +1,5 @@
 import React from 'react';
-import { MotiView} from 'moti'
+import {MotiView} from 'moti'
 import {useNavigation, useRoute} from "@react-navigation/native";
 import styled, {DefaultTheme} from "styled-components/native";
 
@@ -38,7 +38,6 @@ const BottomNavButton = styled.TouchableOpacity`
 // constants
 const iconSize = Spacing.icon.md;
 
-// ================ TYPE =================
 type BottomNavBarProps = {
 	display?: boolean
 	animate?: boolean
@@ -46,16 +45,13 @@ type BottomNavBarProps = {
 }
 
 const BottomNavBar: React.FC<BottomNavBarProps> = ({display = true, animate= false, theme = darkTheme }) => {
-	// navigation
 	const navigation = useNavigation()
 	const {name} = useRoute()
 
-	// animation
 	const {from, to, transition} = getAnimationProps(display, animate, 'down');
 
 	 console.log(`route name: ${name}`)
 
-	// styles
 	const iconColor = (iconName: string) => ( (name === iconName) ? theme.colors.PRIMARY : theme.colors.TITLE )
 
 	return (
@@ -70,12 +66,12 @@ const BottomNavBar: React.FC<BottomNavBarProps> = ({display = true, animate= fal
 						<BottomNavButton onPress={() => navigation.navigate('UserStack', {screen: 'UserScreen', params: {userId: 'min121234'}})}>
 							<FontAwesome5 name="user-circle" size={iconSize} color={iconColor("User")} />
 						</BottomNavButton>
-						<BottomNavButton onPress={() => navigation.navigate('UserStack', {screens: 'Notification'})}>
-							<Ionicons name="settings" size={iconSize} color={iconColor("Profile")} />
+						<BottomNavButton onPress={() => navigation.navigate('MenuStack', {screens: 'SettingScreen'})}>
+							<Ionicons name="settings" size={iconSize} color={iconColor("SettingScreen")} />
 						</BottomNavButton>
-						<BottomNavButton onPress={() => navigation.navigate('MenuStack')}>
+						{/* <BottomNavButton onPress={() => navigation.navigate('MenuStack')}>
 							<Ionicons name="menu" size={iconSize} color={iconColor("Menu")} />
-						</BottomNavButton>
+						</BottomNavButton> */}
 					</BottomNavContainer>
 	)
 }
