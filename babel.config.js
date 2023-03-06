@@ -5,20 +5,19 @@
     plugins: [
       ["babel-plugin-styled-components"],
       ["react-native-reanimated/plugin"],
-      ["module-resolver", {
+      ["module-resolver",
+        {
               "alias": {
-                "icons": "./src/components/icons",
-                "assets": "./assets",
+                "src": "./src",
+                "screens": "./src/screens",
+                "components": "./src/components",
+
+                "assets": "./src/assets",
                 "styles": "./src/styles",
 
                 "stores": "./src/stores",
                 "routes": "./src/routes",
-                "types": "./types",
                 "navType": "./types.d.ts",
-
-                "src": "./src",
-                "screens": "./src/screens",
-                "components": "./src/components",
               },
               "extensions": [
                 ".js",
@@ -26,7 +25,8 @@
                 ".ts",
                 ".tsx",
               ]
-            }],
+        }
+      ],
     ]
   };
 };

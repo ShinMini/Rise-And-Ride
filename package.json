@@ -12,7 +12,8 @@
     "test": "jest",
     "tsc": "tsc",
     "lint": "tslint '**/*.ts,.tsx,.js,.jsx'",
-    "clearinstall": "rm -rf node_modules && yarn && yarn build && yarn start"
+    "config": "expo config && npx expo install expo-font",
+    "restart": "yarn && yarn build && yarn start --clear"
   },
   "dependencies": {
     "@babel/plugin-transform-typescript": "^7.20.13",
@@ -57,7 +58,7 @@
     "@expo/webpack-config": "0.17.2",
     "@react-navigation/stack": "^6.3.14",
     "@types/d3": "^7.4.0",
-    "@types/react": "~18.0.14",
+    "@types/react": "^18.0.28",
     "@types/react-native": "~0.70.6",
     "@types/styled-components": "^5.1.26",
     "babel-plugin-tsconfig-paths-module-resolver": "^1.0.4",
