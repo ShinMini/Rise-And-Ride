@@ -16,20 +16,16 @@
     "jsx": "react",
     "baseUrl": "./",
     "paths": {
-      "icons/*": ["src/components/icons/*"],
-      "assets/*": ["assets/*"],
-      "styles/*": ["src/styles/*"],
-
-      "stores": ["src/stores"],
-      "routes": ["src/routes"],
-      "routes/*": ["src/routes/*"],
-      "types/*": ["types/*"],
-      "navType": ["types.d.ts"],
-
-
       "src/*": ["src/*"],
       "screens/*": ["src/screens/*"],
       "components": ["src/components"],
+
+      "assets/*": ["src/assets/*"],
+      "styles/*": ["src/styles/*"],
+
+      "stores/*": ["src/stores/*"],
+      "routes/*": ["src/routes/*"],
+      "navType": ["types.d.ts"],
     }
   }
 }
