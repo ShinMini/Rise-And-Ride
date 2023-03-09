@@ -61,6 +61,7 @@ const Spacing = {
     // bottom navigation bar
     bottom: {
       width: '100%',
+      height: 90,
       border: {radius: '20px'},
       padding: {top: '25px', bottom: '30px'}
     }

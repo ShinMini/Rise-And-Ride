@@ -23,7 +23,7 @@ const NotificationOptionBox = styled.TouchableOpacity`
   border-radius: 10px;
 `;
 
-const NotificationScreen: FC<RootStackScreenProps<'Notification'>> = ({ navigation }) => {
+const NotificationScreen: FC<RootStackScreenProps> = ({ navigation }) => {
   const {theme} = useThemes();
 
   return (

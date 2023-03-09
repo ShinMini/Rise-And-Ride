@@ -1,5 +1,4 @@
 import React from 'react'
-import { MotiView } from 'moti'
 import {
   NavigationProp,
   useNavigation,
@@ -8,25 +7,23 @@ import {
 import styled, { DefaultTheme } from 'styled-components/native'
 
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
-import getAnimationProps from 'src/utils/getAnimationProps'
 import Spacing from 'styles/Spacing'
 import { darkTheme } from 'styles/Theme'
 import {
   CardStackParamList,
   MenuStackParamList,
   UserStackParamList
-} from '../../../types'
+} from 'navType'
 
 const sp = Spacing.navbar.bottom
 
 // styled components
-const BottomNavContainer = styled(MotiView)`
+const FooterNavContainer = styled.View`
   z-index: 50;
   position: absolute;
   bottom: 0;
 
   flex-direction: row;
-  align-self: center;
 
   justify-content: center;
 
@@ -39,7 +36,7 @@ const BottomNavContainer = styled(MotiView)`
   height: ${sp.height}px;
 `
 
-const BottomNavButton = styled.TouchableOpacity`
+const FooterNavButton = styled.TouchableOpacity`
   flex: 1;
   justify-content: center;
   align-items: center;
@@ -55,9 +52,7 @@ type BottomNavBarProps = {
   color?: string
 }
 
-const BottomNavBar: React.FC<BottomNavBarProps> = ({
-  display = true,
-  animate = false,
+const FixFooterNavBar: React.FC<BottomNavBarProps> = ({
   theme = darkTheme,
   color
 }) => {
@@ -69,7 +64,6 @@ const BottomNavBar: React.FC<BottomNavBarProps> = ({
 
   const { name } = useRoute()
 
-  const { from, to, transition } = getAnimationProps(display, animate, 'down')
   console.log(`route name: ${name}`)
 
   const iColor = color || theme.colors.GREEN
@@ -77,14 +71,14 @@ const BottomNavBar: React.FC<BottomNavBarProps> = ({
     name === iconName ? iColor : theme.colors.TITLE
 
   return (
-    <BottomNavContainer from={from} animate={to} transition={transition}>
-      <BottomNavButton onPress={() => navigation.navigate('Home')}>
+    <FooterNavContainer>
+      <FooterNavButton onPress={() => navigation.navigate('Home')}>
         <Ionicons name="home" size={iconSize} color={iconColor('Home')} />
-      </BottomNavButton>
-      <BottomNavButton onPress={() => cardNav.navigate('CardStack')}>
+      </FooterNavButton>
+      <FooterNavButton onPress={() => cardNav.navigate('CardStack')}>
         <Ionicons name="md-card" size={iconSize} color={iconColor('Card')} />
-      </BottomNavButton>
-      <BottomNavButton
+      </FooterNavButton>
+      <FooterNavButton
         onPress={() =>
           userNav.navigate('UserStack', {
             screen: 'User',
@@ -96,8 +90,8 @@ const BottomNavBar: React.FC<BottomNavBarProps> = ({
           size={iconSize}
           color={iconColor('User')}
         />
-      </BottomNavButton>
-      <BottomNavButton
+      </FooterNavButton>
+      <FooterNavButton
         onPress={() =>
           menuNav.navigate('MenuStack', { screens: 'SettingScreen' })
         }>
@@ -106,9 +100,9 @@ const BottomNavBar: React.FC<BottomNavBarProps> = ({
           size={iconSize}
           color={iconColor('SettingScreen')}
         />
-      </BottomNavButton>
-    </BottomNavContainer>
+      </FooterNavButton>
+    </FooterNavContainer>
   )
 }
 
-export default BottomNavBar
+export default FixFooterNavBar

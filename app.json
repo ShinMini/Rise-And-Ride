@@ -7,9 +7,9 @@
     "icon": "./src/assets/app_config/cute-robot-icon.jpg",
     "userInterfaceStyle": "dark",
     "splash": {
-      "image": "./src/assets/app_config/main_logo.png",
+      "image": "./src/assets/app_config/LoadingScreen.png",
       "resizeMode": "contain",
-      "backgroundColor": "#FF9900"
+      "backgroundColor": "#FFE450"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,8 +22,8 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./src/assets/app_config/main_logo.png",
-        "backgroundColor": "#FF9900"
+        "foregroundImage": "./src/assets/app_config/LoadingScreen.png",
+        "backgroundColor": "#FFE450"
       }
     },
     "web": {
