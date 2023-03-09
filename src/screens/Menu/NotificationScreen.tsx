@@ -5,8 +5,8 @@ import BottomNavBar from "routes/components/BottomNavBar";
 import useThemes from "src/hooks/useTheme";
 import HeaderNavBar from "routes/components/HeaderNavBar";
 import Spacing from "styles/Spacing";
-import {UserStackScreenProps} from "routes/UserStack";
 import Margin from "src/components/Margin";
+import { RootStackScreenProps} from 'navType';
 
 const Container = styled.View`
   flex: 1;
@@ -23,7 +23,7 @@ const NotificationOptionBox = styled.TouchableOpacity`
   border-radius: 10px;
 `;
 
-const NotificationScreen: FC<UserStackScreenProps<'Notification'>> = ({ navigation }) => {
+const NotificationScreen: FC<RootStackScreenProps<'Notification'>> = ({ navigation }) => {
   const {theme} = useThemes();
 
   return (

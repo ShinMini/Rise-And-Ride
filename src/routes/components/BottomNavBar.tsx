@@ -1,12 +1,13 @@
 import React from 'react';
 import {MotiView} from 'moti'
-import {useNavigation, useRoute} from "@react-navigation/native";
+import {NavigationProp, useNavigation, useRoute} from "@react-navigation/native";
 import styled, {DefaultTheme} from "styled-components/native";
 
 import {Ionicons, FontAwesome5} from '@expo/vector-icons';
 import getAnimationProps from "src/utils/getAnimationProps";
 import Spacing from "styles/Spacing";
 import {darkTheme} from "styles/Theme";
+import { CardStackParamList, MenuStackParamList, UserStackParamList } from '../../../types';
 
 const sp = Spacing.navbar.bottom
 
@@ -42,17 +43,22 @@ type BottomNavBarProps = {
 	display?: boolean
 	animate?: boolean
 	theme: DefaultTheme
+	color?: string
 }
 
-const BottomNavBar: React.FC<BottomNavBarProps> = ({display = true, animate= false, theme = darkTheme }) => {
+const BottomNavBar: React.FC<BottomNavBarProps> = ({ display = true, animate = false, theme = darkTheme, color }) => {
 	const navigation = useNavigation()
-	const {name} = useRoute()
+	const cardNav = useNavigation<NavigationProp<CardStackParamList, 'Card'>>()
+	const userNav = useNavigation<NavigationProp<UserStackParamList, 'User'>>()
+	const menuNav = useNavigation<NavigationProp<MenuStackParamList, 'MenuStack'>>()
 
-	const {from, to, transition} = getAnimationProps(display, animate, 'down');
+	const { name } = useRoute()
 
-	 console.log(`route name: ${name}`)
+	const { from, to, transition } = getAnimationProps(display, animate, 'down');
+	console.log(`route name: ${name}`)
 
-	const iconColor = (iconName: string) => ( (name === iconName) ? theme.colors.PRIMARY : theme.colors.TITLE )
+	const iColor = color || theme.colors.GREEN
+	const iconColor = (iconName: string) => ( (name === iconName) ? iColor : theme.colors.TITLE )
 
 	return (
 					<BottomNavContainer
@@ -61,17 +67,17 @@ const BottomNavBar: React.FC<BottomNavBarProps> = ({display = true, animate= fal
 									transition={transition}
 					>
 						<BottomNavButton onPress={() => navigation.navigate('Home')}>
-							<Ionicons name="md-card" size={iconSize} color={iconColor("Home")} />
+							<Ionicons name="home" size={iconSize} color={iconColor("Home")} />
 						</BottomNavButton>
-						<BottomNavButton onPress={() => navigation.navigate('UserStack', {screen: 'UserScreen', params: {userId: 'min121234'}})}>
+						<BottomNavButton onPress={() => cardNav.navigate('CardStack')}>
+							<Ionicons name="md-card" size={iconSize} color={iconColor("Card")} />
+						</BottomNavButton>
+						<BottomNavButton onPress={() => userNav.navigate('UserStack', {screen: 'User', params: {userId: 'min121234'}})}>
 							<FontAwesome5 name="user-circle" size={iconSize} color={iconColor("User")} />
 						</BottomNavButton>
-						<BottomNavButton onPress={() => navigation.navigate('MenuStack', {screens: 'SettingScreen'})}>
+						<BottomNavButton onPress={() => menuNav.navigate('MenuStack', {screens: 'SettingScreen'})}>
 							<Ionicons name="settings" size={iconSize} color={iconColor("SettingScreen")} />
 						</BottomNavButton>
-						{/* <BottomNavButton onPress={() => navigation.navigate('MenuStack')}>
-							<Ionicons name="menu" size={iconSize} color={iconColor("Menu")} />
-						</BottomNavButton> */}
 					</BottomNavContainer>
 	)
 }
