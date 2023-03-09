@@ -34,13 +34,12 @@ export const DefaultColors = {
     FACEBOOK_BLUE: '#1877F2',
     META_BLUE_SOLID: '#0080F9',
     GITHUB_BLUE: '#4078C0',
-    META_BLUE_GRADIENT: 'linear-gradient(180deg, #0080FA 0%, #0668E1 100%)',
     BENTO_LAVENDER: '#768CFF',
     LOOM_PURPLE: '#625DF5',
     STRIPE_PURPLE: '#635BFF',
     MASTODON_PURPLE_SOLID: '#6364FF',
     TWITCH_VIOLET: '#9146FF',
-    PAYpAL_BLUE: '#003087',
+    PAYPAL_BLUE: '#003087',
 
     DISCORD_PURPLE: '#5865F2',
     FIGMA_VIOLET:'#A259FF',
@@ -52,6 +51,8 @@ export const DefaultColors = {
 
     LAYERS_BLACK: '#111827',
     LINKTREE_BLACK : '#1E2330',
+
+    META_BLUE_GRADIENT: 'linear-gradient(180deg, #0080FA 0%, #0668E1 100%)',
     ETHEREUM: 'linear-gradient(135deg, #B8FAF6 0%, #F0CDC2 33.33%, #C9B3F5 66.67%, #88AAF1 100%)',
 }
 

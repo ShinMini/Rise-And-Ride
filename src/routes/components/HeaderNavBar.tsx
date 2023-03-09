@@ -36,7 +36,7 @@ const HeaderDefaultComponent = styled.View`
 `
 
 const HeaderText = styled(ExtraBold)<{color?: string}>`
-  color: ${({theme, color}) => color ? color : theme.colors.PRIMARY};
+  color: ${({theme, color}) => color ? color : theme.colors.GREEN};
   font-size: ${Spacing.font.lg}px;
 `
 
@@ -97,7 +97,8 @@ const HeaderNavBar: FC<HeaderNavBarProps> = ({
                                                title = '',
                                                canGoBack = false,
                                                animate = false,
-                                               theme = darkTheme
+                                               theme = darkTheme,
+                                               color
                                              }) => {
   const navigation = useNavigation()
   const expandedColor = theme.colors.GRAY_LIGHT
@@ -167,7 +168,7 @@ const HeaderNavBar: FC<HeaderNavBarProps> = ({
                               </HeaderNavButton>
                       )
               }
-              <HeaderText align="center" fontFamily={"DigitExtraBold"}>
+              <HeaderText align="center" fontFamily={"DigitExtraBold"} color={color}>
                 {title}
               </HeaderText>
               <HeaderNavButton onPress={onPressMenuIcon} bottom={3}>

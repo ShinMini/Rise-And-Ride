@@ -35,7 +35,7 @@ const SettingScreen: FC<SettingScreenProps> = ({ navigation }) => {
 
   return (
           <Container>
-            <HeaderNavBar display canGoBack theme={theme} title="Setting" />
+      <HeaderNavBar display canGoBack theme={theme} title="Setting" color={theme.colors.LINKTREE_BLACK} />
             <Margin nav mb={10} />
             <SettingOptionBox onPress={toggleColorScheme}>
               <_Text> switch Theme </_Text>
@@ -43,7 +43,7 @@ const SettingScreen: FC<SettingScreenProps> = ({ navigation }) => {
 
             <_Text size={Spacing.icon.md} >Welcome to the Setting Screen!</_Text>
             <Switch value={isDark} onValueChange={toggleColorScheme} style={{alignSelf: 'center'}}/>
-            <BottomNavBar display theme={theme} />
+            <BottomNavBar display theme={theme} color={theme.colors.LINKTREE_BLACK}  />
           </Container>
   );
 }

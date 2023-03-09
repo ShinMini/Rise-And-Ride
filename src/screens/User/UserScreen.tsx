@@ -8,8 +8,7 @@ import {_Text} from "components";
 import Spacing from "styles/Spacing";
 import styled from "styled-components/native";
 import Margin from "src/components/Margin";
-
-
+import { RootStackScreenProps } from 'navType';
 
 const Container = styled.View`
     flex: 1;
@@ -32,17 +31,17 @@ const UserScreen : FC<UserStackScreenProps<'User'>> = ({navigation, route}) => {
   console.log(`UserScreen.tsx: route.params?.userId: ${route.params?.userId}`)
 
   return (
-          <Container>
-            <HeaderNavBar display canGoBack theme={theme} title="My Page" />
-            <Margin nav mb={10}/>
+      <Container>
+        <HeaderNavBar title="My Page" display canGoBack theme={theme} color={theme.colors.POINT} />
+        <Margin nav mb={10}/>
+        <NotificationOptionBox onPress={() => navigation.navigate('Home') }>
+          <_Text size={Spacing.font.md} >Go back Home Screen</_Text>
+        </NotificationOptionBox>
 
-            <NotificationOptionBox>
-              <_Text size={Spacing.font.md} >Welcome to My Page!</_Text>
-            </NotificationOptionBox>
+          <_Text size={Spacing.icon.md} >Welcome to the User Screen!</_Text>
 
-            <_Text size={Spacing.icon.md} >Welcome to the Notification Screen!</_Text>
-            <BottomNavBar display theme={theme} />
-          </Container>
+        <BottomNavBar display theme={theme} color={theme.colors.POINT} />
+      </Container>
   );
 }
 
